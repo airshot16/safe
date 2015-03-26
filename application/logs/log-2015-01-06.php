@@ -1,0 +1,20 @@
+<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
+ERROR - 2015-01-06 11:12:45 --> Severity: Notice  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 11:12:47 --> Severity: Notice  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 11:12:54 --> Severity: Notice  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 11:12:54 --> Severity: Notice  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 11:12:54 --> Severity: Notice  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 11:12:56 --> Severity: Notice  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:27 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:27 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:27 --> Unable to connect to the database
+ERROR - 2015-01-06 12:47:32 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:32 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:32 --> Unable to connect to the database
+ERROR - 2015-01-06 12:47:34 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:34 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:34 --> Unable to connect to the database
+ERROR - 2015-01-06 12:47:35 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:35 --> Severity: Warning  --> mysql_pconnect():  D:\dev\php\web\sbm\sbm.dealer\system\database\drivers\mysql\mysql_driver.php 91
+ERROR - 2015-01-06 12:47:35 --> Unable to connect to the database
