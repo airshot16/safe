@@ -345,15 +345,15 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		  </tr>
 		  <tr>
 		    <td colspan=6 class="style01">LCD Window</td>
-			<td colspan=12 align=center>SBM @lcd_mdl_nm</td>
+			<td colspan=12 align=center>@lcd_mdl_nm</td>
 		  </tr>
 		  <tr>
 		    <td colspan=6 class="style01">Out Box</td>
-			<td colspan=12 align=center>SBM @box_mdl_nm</td>
+			<td colspan=12 align=center>@box_mdl_nm</td>
 		  </tr>
 		  <tr>
 		    <td colspan=6 class="style01">Label</td>
-			<td colspan=12 align=center>SBM @label_mdl_nm</td>
+			<td colspan=12 align=center>@label_mdl_nm</td>
 		  </tr>
 		  <tr>
 		    <td colspan=6 class="style01">PWR / Printer Power Cable</td>
@@ -380,8 +380,8 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		<table border="0" cellpadding="0" cellspacing="0" id="sheet0" style="width: 210mm;" align=center>
 			  <tbody>
 			  <tr style="border:0px;">
-				<td width=20% class="style00">SBM-영업-P-701-05</td>
-			    <td width=15% class="style00">㈜에스비엠</td>
+				<td width=20% class="style00">P-701-05</td>
+			    <td width=15% class="style00"></td>
 				<td style="text-align:right;font-weight:bold;" >A4(210 X297mm)</td>
 			  </tr>
 			  </tbody>

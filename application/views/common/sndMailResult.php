@@ -82,7 +82,7 @@ try {
 	    	if(SBM_DOMAIN=="http://www.safeleader.esy.es"){
 		    	$mail->AddAddress($row['email_to'], $row['rcpnt_nm']); 
 	    	}else if(SBM_DOMAIN=="http://localhost:9090"){
-	    		$mail->AddAddress(SBM_PUB_EMAIL);
+	    		$mail->AddAddress(SBM_LOCAL_EMAIL);
 	    	}
 	    }
 	    $mail->Subject = $row['title']; // 메일 제목
@@ -102,7 +102,7 @@ try {
 	    	}
 	    }
 	    if($row['wrk_tp_atcd']!="00700310" && $row['wrk_tp_atcd']!="00700320" && $row['wrk_tp_atcd']!="00700510"){  // if not 의뢰서/출고전표
-		    $mail->AddAttachment($_SERVER["DOCUMENT_ROOT"]."/images/common/sbm_footer.jpg"); // attachment
+		    $mail->AddAttachment($_SERVER["DOCUMENT_ROOT"]."/images/common/foot_copyright.gif"); // attachment
 	    }
 	    
 #	    if($row['rcpnt_tp_atcd']=="00100010"){  // test - if the target is dealer -> do not send yet.

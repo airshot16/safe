@@ -199,29 +199,29 @@ body { left-margin: 0.19685039370079in; right-margin: 0.19685039370079in; top-ma
 			<td class="column42 style09 null" colspan=2 width=20%></td>
 		  </tr>
 		  <tr class="row2">
-			<td class="column0 style9 null" colspan=2 rowspan=4><img style="width: 75px; height: 25px;" src="@base_url/images/common/sbmlogo.jpeg" border="0" /></td>
-			<td class="column5 style10 s" valign=top>SBM CO., LTD.</td>
+			<td class="column0 style9 null" colspan=2 rowspan=4><img style="width: 75px; height: 25px;" src="@base_url/images/common/sl_logo.gif" border="0" /></td>
+			<td class="column5 style10 s" valign=top>SafeLeader CO., LTD.</td>
 			<td class="column23 style11 null"></td>
 			<td class="column24 style1 s" width=100px>Invoice date :</td>
 			<td class="column31 style217 n"><div>@txt_invoice_dt</div></td>
 			<td class="column42 style13 null"></td>
 		  </tr>
 		  <tr class="row2">
-			<td class="column23 style14 null">6F, Hyunwoo Bld, 206, Anyang-Dong</td>
+			<td class="column23 style14 null"></td>
 			<td class="column23 style11 null"></td>
 			<td class="column24 style1 s">Invoice No :</td>
 			<td class="column31 style217 n style217" width=90px><div>SWI-@txt_invoice_no@ci_sndmail_seq</div></td>
 			<td class="column42 style13 null"></td>
 		  </tr>
 		  <tr class="row2">
-			<td class="column23 style14 null">Manan-Gu, Anyang-City, Gyeonggi-Do</td>
+			<td class="column23 style14 null"></td>
 			<td class="column23 style11 null"></td>
 			<td class="column24 style1 s"></td>
 			<td class="column31 style217 n style217"></td>
 			<td class="column42 style13 null"></td>
 		  </tr>
 		  <tr class="row2">
-			<td class="column23 style14 null">430-817, KOREA</td>
+			<td class="column23 style14 null"></td>
 			<td class="column23 style02 null"></td>
 			<td class="column24 style01 s">&nbsp;&nbsp;&nbsp;&nbsp;PI no.:</td>
 			<td class="column31 style01 s"><div>@txt_pi_no</div></td>
@@ -389,14 +389,13 @@ body { left-margin: 0.19685039370079in; right-margin: 0.19685039370079in; top-ma
 		  </tr>
 		  <tr class="row46">
 			<td class="column0 style53 s" rowspan=2 width=5%></td>
-		  	<td class="column1 style10 s" colspan=2>SBM CO., LTD</td>
+		  	<td class="column1 style10 s" colspan=2>SafeLeader CO., LTD</td>
 			<td class="column29 style14 null">signed by</td>
-			<td class="column28 style14 null" rowspan=2 colspan=2><img style="width: 180px; height: 80px;" src="@base_url/images/common/sbmsign.jpeg" border="0" /></td>
+			<td class="column28 style14 null" rowspan=2 colspan=2><img style="width: 180px; height: 80px;" src="@base_url/images/common/sl_logo.gif" border="0" /></td>
 			<td class="column42 style13 null"></td>
 		  </tr>
 		  <tr class="row46">
-		  	<td colspan=5>6F, Hyunwoo Bld, 206, Anyang-Dong<BR>Manan-Gu, Anyang-City, Gyeonggi-Do<BR>430-817, KOREA<br>
-		  	Tel : +82-31-429-0789<BR>Fax : +82-31-429-3607
+		  	<td colspan=5><br>
 		  	</td>
 			<td class="column42 style13 null"></td>
 		  </tr>

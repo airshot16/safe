@@ -309,7 +309,7 @@ body { left-margin: 0.15748031496063in; right-margin: 0.15748031496063in; top-ma
 		  </tr>
 		  <tr class="row1">
 			<td class="column0 style5 null" width="5px"></td>
-			<td class="column1 style98 null style98" align=center><img style="width: 75px; height: 25px;" src="@base_url/images/common/sbmlogo.jpeg" border="0" /></td>
+			<td class="column1 style98 null style98" align=center><img style="width: 75px; height: 25px;" src="@base_url/images/common/sl_logo.gif" border="0" /></td>
 			<td></td>
 			<td class="column2 style125 s style130" colspan="9" height=50px>부품출고 의뢰서</td>
 			<td class="column0 style13 null"></td>

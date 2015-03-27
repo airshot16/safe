@@ -97,7 +97,7 @@ try {
 	    	}
 	    }
 	    if($row['wrk_tp_atcd']!="00700310" && $row['wrk_tp_atcd']!="00700320" && $row['wrk_tp_atcd']!="00700510"){  // if not 의뢰서/출고전표
-		    $mail->AddAttachment($_SERVER["DOCUMENT_ROOT"]."/images/common/sbm_footer.jpg"); // attachment
+		    $mail->AddAttachment($_SERVER["DOCUMENT_ROOT"]."/images/common/foot_copyright.gif"); // attachment
 	    }
 	    
 #	    if($row['rcpnt_tp_atcd']=="00100010"){  // test - not dealer

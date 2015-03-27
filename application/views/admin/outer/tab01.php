@@ -358,7 +358,7 @@ body { left-margin: 0.98425196850394in; right-margin: 0.98425196850394in; top-ma
 		  <tr class="row32">
 			<td class="column0 style39 s" colspan=2>Inspection</td>
 			<td class="column2 style40 s">:</td>
-			<td class="column3 style39 s" colspan=4>Final inspection shall be made at the SBM’s factory</td>
+			<td class="column3 style39 s" colspan=4></td>
 		  </tr>
 		  <tr class="row33">
 			<td class="column0 style39 s" colspan=2>Destination</td>
@@ -474,17 +474,17 @@ body { left-margin: 0.98425196850394in; right-margin: 0.98425196850394in; top-ma
 			<td class="column0 style50 s" colspan=7><div id="worker_team_duty"></div></td>
 		  </tr>
 		  <tr class="row51">
-			<td class="column0 style52 s" colspan=7>SBM Co., Ltd.</td>
+			<td class="column0 style52 s" colspan=7>SafeLeader Co., Ltd.</td>
 		  </tr>
 		  <tr class="row52">
-			<td class="column0 style54 s" colspan=7>6F, Hyunwoo Bld, 206, Anyang7-Dong, Manan-Gu, Anyang-City, Gyeonggi-Do, KOREA . 430-817</td>
+			<td class="column0 style54 s" colspan=7></td>
 		  </tr>
 		  <tr class="row53">
 			<td class="column0 style54 s" colspan=7></td>
 		  </tr>
 		  <tr class="row54">
-			<td class="column0 style55 s" colspan=3>SBM-<span style="color:#000000; font-family:'돋움'; font-size:10pt">영업</span><span style="color:#000000; font-family:'Arial'; font-size:10pt">-P-701-02</span></td>
-			<td class="column3 style57 s">㈜에스비엠</td>
+			<td class="column0 style55 s" colspan=3><span style="color:#000000; font-family:'돋움'; font-size:10pt">영업</span><span style="color:#000000; font-family:'Arial'; font-size:10pt">-P-701-02</span></td>
+			<td class="column3 style57 s"></td>
 			<td class="column4 style56 null"></td>
 			<td class="column5 style56 null"></td>
 			<td class="column6 style57 s">A4(210 X297mm)</td>

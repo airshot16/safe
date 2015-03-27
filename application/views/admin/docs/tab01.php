@@ -483,8 +483,8 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		<table border="0" cellpadding="0" cellspacing="0" id="sheet0" style="width: 210mm;;" align=center>
 			  <tbody>
 			  <tr style="border:0px;">
-				<td width=20% class="style00">SBM-영업-P-701-05</td>
-			    <td width=15% class="style00">㈜에스비엠</td>
+				<td width=20% class="style00">P-701-05</td>
+			    <td width=15% class="style00"></td>
 				<td style="text-align:right;font-weight:bold;" >A4(210 X297mm)</td>
 			  </tr>
 			  </tbody>
@@ -688,9 +688,9 @@ function editForm(eqpOrdInfo, eqpOrdDtlList, prdReqInfo, prdReqDtlList) {
 	$("#buyer").html(eqpOrdInfo.txt_cntry_atcd + "-" + eqpOrdInfo.cmpy_nm);
 	$("#po_no").html(eqpOrdInfo.po_no);
 	$("#txt_mdl_nm").html(eqpOrdInfo.txt_mdl_nm);
-	$("#lcd_mdl_nm").html("SBM " + eqpOrdInfo.mdl_nm);
-	$("#box_mdl_nm").html("SBM " + eqpOrdInfo.mdl_nm);
-	$("#label_mdl_nm").html("SBM " + eqpOrdInfo.mdl_nm);
+	$("#lcd_mdl_nm").html(eqpOrdInfo.mdl_nm);
+	$("#box_mdl_nm").html(eqpOrdInfo.mdl_nm);
+	$("#label_mdl_nm").html(eqpOrdInfo.mdl_nm);
 	$("#qty").html(eqpOrdInfo.qty);
 
 	$("#txt_lcd_lang_atcd").html(eqpOrdInfo.txt_lcd_lang_atcd);

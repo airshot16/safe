@@ -257,7 +257,7 @@ body { left-margin: 0.35433070866142in; right-margin: 0.31496062992126in; top-ma
 			<td class="column4 style5 null"></td>
 			<td class="column5 style5 null"></td>
 			<td class="column6 style5 null"></td>
-			<td class="column7 style5 null"><img style="width: 147px; height: 44px;" src="@base_url/images/common/sbmlogo.jpeg" border="0" /></td>
+			<td class="column7 style5 null"><img style="width: 147px; height: 44px;" src="@base_url/images/common/sl_logo.gif" border="0" /></td>
 			<td class="column8 style6 null"></td>
 			<td class="column9">&nbsp;</td>
 			<td class="column10">&nbsp;</td>
@@ -292,9 +292,9 @@ body { left-margin: 0.35433070866142in; right-margin: 0.31496062992126in; top-ma
 			<td class="column11">&nbsp;</td>
 		  </tr>
 		  <tr class="row18">
-			<td class="column0 style22 s" colspan=3>SBM-공통-P-708-01</td>
+			<td class="column0 style22 s" colspan=3>P-708-01</td>
 			<td class="column3 style23 null"></td>
-			<td class="column4 style24 s">㈜에스비엠</td>
+			<td class="column4 style24 s"></td>
 			<td class="column5 style23 null"></td>
 			<td class="column6 style23 null">
 			<td class="column8 style24 s" colspan=2>A4(210 X297mm)</td>
