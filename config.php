@@ -12,7 +12,7 @@ define('LOCAL_SMTP_PASS', '1111');
 define('LOCAL_SMTP_PORT', '25');
 
 define('SBM_LOCAL_EMAIL', 'test@localhost');
-
+/**
 define('SBM_SMTP_HOST', 'mx1.hostinger.kr');
 define('SBM_SMTP_USER', 'safe@safeleader.esy.es');
 define('SBM_SMTP_PASS', 'safeleader');
@@ -23,6 +23,7 @@ define('SBM_PUB2_EMAIL', 'safe@safeleader.esy.es');
 #define('SBM_SALES_EMAIL', 'sales@safeleader.esy.es');
 define('SBM_SALES_EMAIL', 'kpbaek@localhost');
 define('SBM_DOMAIN', 'http://localhost:9090');
+*/
 
 // safeleader.esy.es database connection settings
 /**
@@ -40,24 +41,23 @@ define('SBM_SMTP_PORT', '2525');
 define('SBM_PUB_EMAIL', 'safe@safeleader.esy.es');
 define('SBM_DOMAIN', 'http://www.safeleader.esy.es');
 */
-
-// sbmkorea.url database connection settings
+// sbmkorea.co.kr database connection settings
 /**
 define("SBMBIZ_DBTYPE","mysql"); // or mysqli
 define("SBMBIZ_DBHOST","mysql.hostinger.kr");
-define("SBMBIZ_DBUSER","u900714269_sbm");
-define("SBMBIZ_DBPASS","sbmdealer!");
-define("SBMBIZ_DBNAME","u900714269_sbm");
-
+define("SBMBIZ_DBUSER","u684912886_safe");
+define("SBMBIZ_DBPASS","safeleader!");
+define("SBMBIZ_DBNAME","u684912886_safe");
+*/
 define('SBM_SMTP_HOST', 'mx1.hostinger.kr');
-define('SBM_SMTP_USER', 'sbmkorea@sbmkorea.url.ph');
-define('SBM_SMTP_PASS', 'sbmkoreacom');
+define('SBM_SMTP_USER', 'safe@safeleader.co.kr');
+define('SBM_SMTP_PASS', 'safeleader!');
 define('SBM_SMTP_PORT', '2525');
 
-define('SBM_PUB_EMAIL', 'sbm@sbmkorea.url.ph');
-define('SBM_SALES_EMAIL', 'sales@sbmkorea.url.ph');
-define('SBM_DOMAIN', 'http://www.sbmkorea.url.ph');
-*/
+define('SBM_PUB_EMAIL', 'safe@safeleader.co.kr');
+define('SBM_PUB2_EMAIL', 'safe@safeleader.co.kr');
+define('SBM_SALES_EMAIL', 'sales@safeleader.co.kr');
+define('SBM_DOMAIN', 'http://www.safeleader.co.kr');
 
 // sbmbiz database connection settings
 /**
