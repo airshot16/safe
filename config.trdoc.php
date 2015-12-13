@@ -18,7 +18,7 @@ define('SBM_SMTP_PASS', 'trdoc.net');
 define('SBM_SMTP_PORT', '2525');
 
 define('SBM_PUB_EMAIL', 'trdoc@trdoc.net');
-define('SBM_PUB2_EMAIL', 'trdoc@trdoc.net');
-define('SBM_SALES_EMAIL', 'sales@trdoc.net');
+define('SBM_PUB2_EMAIL', 'help@trdoc.net');
+define('SBM_SALES_EMAIL', 'order@trdoc.net');
 define('SBM_DOMAIN', 'http://www.trdoc.net');
 
