@@ -10,12 +10,12 @@ if(isset($_REQUEST["email_fwd"])){
 
 $swm_no = null;
 if(isset($_REQUEST["swm_no"])){
-	$swm_no = $_POST["swm_no"];
+	$swm_no = $_REQUEST["swm_no"];
 }
 
 $rmk = null;
 if(isset($_REQUEST["rmk"])){
-	$rmk = $_POST["rmk"];
+	$rmk = $_REQUEST["rmk"];
 }
 
 $pi_no = "9999"; // test : if pi_no is not exists
@@ -48,8 +48,9 @@ if($sndmail_atcd=="00700111"){
 	}
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/order/readEqpOrder.php");
 		
-	$eqpOrder = readEqpOrder($pi_no, $po_no);
-	$ctnt = getEqpOrderMailCtnt($ctnt, $eqpOrder);
+	$eqpOrderClass=new EqpOrderClass();
+	$eqpOrder = $eqpOrderClass->readEqpOrder($this->db->conn_id, $pi_no, $po_no);
+	$ctnt = $eqpOrderClass->getEqpOrderMailCtnt($ctnt, $eqpOrder);
 	
 }else if($sndmail_atcd=="00700112"){
 	$swp_no = "";
@@ -59,7 +60,8 @@ if($sndmail_atcd=="00700111"){
 	
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/order/readPartOrder.php");
 		
-	$ctnt = getPartOrderMailCtnt($ctnt, $pi_no, $swp_no);
+	$partOrderClass=new PartOrderClass();
+	$ctnt = $partOrderClass->getPartOrderMailCtnt($this->db->conn_id, $ctnt, $pi_no, $swp_no);
 }
 
 #$qryInfo['qryInfo']['result'] = false;
@@ -100,10 +102,13 @@ if(isSet($_REQUEST['wrk_tp_atcd'])){
 			include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/order/readEqpOrder.php");
 			include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/docs/readPrdReq.php");
 			
-			$prdReq = readEqpOrder($pi_no, $po_no);
-			$prdReq = readPrdReq($prdReq, $pi_no, $po_no);
+			$eqpOrderClass=new EqpOrderClass();
+			$prdReq = $eqpOrderClass->readEqpOrder($this->db->conn_id, $pi_no, $po_no);
 
-			$ctnt = getPrdReqMailCtnt($ctnt, $prdReq);
+			$prdReqClass=new PrdReqClass();
+			$prdReq = $prdReqClass->readPrdReq($this->db->conn_id, $prdReq, $pi_no, $po_no);
+
+			$ctnt = $prdReqClass->getPrdReqMailCtnt($ctnt, $prdReq);
 				
 		}else if($wrk_tp_atcd == "00700320"){ // 부품출고의뢰서
 			$swp_no = "";
@@ -113,18 +118,22 @@ if(isSet($_REQUEST['wrk_tp_atcd'])){
 			include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/order/readPartOrder.php");
 			include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/docs/readPartReq.php");
 			
-			$partReq = readPartOrder($pi_no, $swp_no);
-			$partReq = readPartReq($partReq, $pi_no, $swp_no);
+			$partOrderClass=new PartOrderClass();
+			$partReq = $partOrderClass->readPartOrder($this->db->conn_id, $pi_no, $swp_no);
 			
-			$ctnt = getPartReqMailCtnt($ctnt, $partReq);
+			$partReqClass=new PartReqClass();
+			$partReq = $partReqClass->readPartReq($this->db->conn_id, $partReq, $pi_no, $swp_no);
+			
+			$ctnt = $partReqClass->getPartReqMailCtnt($ctnt, $partReq);
 							
 		}else if($wrk_tp_atcd=="00700610"){  // Packing List
 			include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/outer/readInvoice.php");
-			$invoice = readInvoice($pi_no);
+			$invoiceClass=new InvoiceClass();
+			$invoice = $invoiceClass->readInvoice($this->db->conn_id, $pi_no);
 		
 			include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/outer/readPacking.php");
-			$ctnt = getPackingMailCtnt($ctnt, $invoice);
-					
+			$packingClass=new PackingClass();
+			$ctnt = $packingClass->getPackingMailCtnt($ctnt, $invoice);
 		}
 		$ctnt = str_replace("@base_url", SBM_DOMAIN, $ctnt);
 		
@@ -146,28 +155,33 @@ if(isSet($_REQUEST['wrk_tp_atcd'])){
 	$sql_snd = "SELECT sndmail_seq, crt_dt as order_dt";
 	$sql_snd = $sql_snd . " FROM om_sndmail";
 	$sql_snd = $sql_snd . " WHERE sndmail_seq = LAST_INSERT_ID()";
-	$result_1 = mysql_query($sql_snd);
+	$result_1 = mysqli_query($this-> db-> conn_id, $sql_snd);
 	
-	$sendmail_seq = mysql_result($result_1,0,"sndmail_seq");
-	$order_dt = mysql_result($result_1,0,"order_dt");
+#	$sendmail_seq = mysql_result($result_1,0,"sndmail_seq");
+	$sendmail_seq = $result_1->fetch_array()["sndmail_seq"];
+#	$order_dt = mysql_result($result_1,0,"order_dt");
+	$order_dt = $result_1->fetch_array()["order_dt"];
 	$qryInfo['qryInfo']['sndmail_seq'] = $sendmail_seq;
 
 	if($wrk_tp_atcd == "00700210" or $wrk_tp_atcd=="00700405" or $wrk_tp_atcd=="00700410"){ // PI, Forward발송, CI
 		include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/outer/readInvoice.php");			
 		if($sndmail_atcd=="00700211"){ // PI
-			$invoice = readInvoice($pi_no);
-			$ctnt = getPiMailCtnt($ctnt, $invoice);
+			$invoiceClass=new InvoiceClass();
+			$invoice = $invoiceClass->readInvoice($this->db->conn_id, $pi_no);
+			$ctnt = $invoiceClass->getPiMailCtnt($ctnt, $invoice);
 			$ctnt = str_replace("@pi_sndmail_seq", "-" . $sendmail_seq, $ctnt);
 		}else if($sndmail_atcd=="00700411"){  // CI
-			$invoice = readInvoice($pi_no);
-			$ctnt = getCiMailCtnt($ctnt, $invoice);
+			$invoiceClass=new InvoiceClass();
+			$invoice = $invoiceClass->readInvoice($this->db->conn_id, $pi_no);
+			$ctnt = $invoiceClass->getCiMailCtnt($ctnt, $invoice);
 			$ctnt = str_replace("@ci_sndmail_seq", "-" . $sendmail_seq, $ctnt);
 		}		
 	}else if($wrk_tp_atcd == "00700510"){ // 출고전표
 		include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/docs/readSlip.php");
 			
-		$slip = readSlip($pi_no);
-		$ctnt = getSlipMailCtnt($ctnt, $slip);
+		$slipClass=new SlipClass();
+		$slip = $slipClass->readSlip($this->db->conn_id, $pi_no);
+		$ctnt = $slipClass->getSlipMailCtnt($ctnt, $slip);
 		$ctnt = str_replace("@slip_sndmail_seq", "-" . $sendmail_seq, $ctnt);
 	}else if($sndmail_atcd=="00700111" or $sndmail_atcd=="00700112"){  // order
 		$ctnt = str_replace("@order_dt", $order_dt, $ctnt);
@@ -317,7 +331,7 @@ if(isSet($_REQUEST['wrk_tp_atcd'])){
 		$sql4 = $sql4 . " WHERE pi_no = '" .$pi_no. "'";
 		$sql4 = $sql4 . " AND swp_no = " .$swp_no;
 		
-//		$result4 = mysql_query($sql4);
+//		$result4 = mysqli_query($this-> db-> conn_id, $sql4);
 		$result4 = $this->db->query($sql4);
 		$qryInfo['qryInfo']['sql4'] = $sql4;
 		$qryInfo['qryInfo']['result4'] = $result4;
@@ -340,7 +354,8 @@ if(isSet($_REQUEST['wrk_tp_atcd'])){
 		$qryInfo['qryInfo']['sql3'] = $sql3;
 		$qryInfo['qryInfo']['result3'] = $result3;
 		
-		$slip = readSlip($pi_no);
+		$slipClass=new SlipClass();
+		$slip = $slipClass->readSlip($this->db->conn_id, $pi_no);
 		
 		$sql4 = "UPDATE om_ord_inf";
 		$sql4 = $sql4 . " SET slip_sndmail_seq = " .$sendmail_seq;
@@ -358,7 +373,7 @@ if(isSet($_REQUEST['wrk_tp_atcd'])){
 		$sql4 = $sql4 . " SET sndmail_seq = " .$sendmail_seq;
 		$sql4 = $sql4 . " WHERE pi_no = '" .$pi_no. "'";
 				
-//		$result4 = mysql_query($sql4);
+//		$result4 = mysqli_query($this-> db-> conn_id, $sql4);
 		$result4 = $this->db->query($sql4);
 		$qryInfo['qryInfo']['sql4'] = $sql4;
 		$qryInfo['qryInfo']['result4'] = $result4;

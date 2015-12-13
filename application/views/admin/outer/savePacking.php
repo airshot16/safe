@@ -63,20 +63,21 @@ if(isset($_POST["tot_eqp_qty"])){
 
 if(isSet($_POST['pi_no'])){
 	
-	$pi_no = mysql_real_escape_string($pi_no);
-	$eqp_carton_no = mysql_real_escape_string($eqp_carton_no);
-	$part_carton_no = mysql_real_escape_string($part_carton_no);
-	$addon_carton_no = mysql_real_escape_string($addon_carton_no);
+	$pi_no = mysqli_real_escape_string($this-> db-> conn_id, $pi_no);
+	$eqp_carton_no = mysqli_real_escape_string($this-> db-> conn_id, $eqp_carton_no);
+	$part_carton_no = mysqli_real_escape_string($this-> db-> conn_id, $part_carton_no);
+	$addon_carton_no = mysqli_real_escape_string($this-> db-> conn_id, $addon_carton_no);
 	
 	$sql = "SELECT (select atcd_nm from cm_cd_attr where cd = '0070' and atcd = a.wrk_tp_atcd) txt_wrk_tp_atcd FROM om_ord_inf";
 	$sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
 	$sql = $sql . " AND wrk_tp_atcd = '00700610'";  // 00700610(Packing List 발송)
 #	echo $sql;
 	
-	$result=mysql_query($sql);
+	$result=mysqli_query($this-> db-> conn_id, $sql);
 	
 	if($result!=null){
-		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+#		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+		$txt_wrk_tp_atcd = $result->fetch_array()["txt_wrk_tp_atcd"];
 		$qryInfo['qryInfo']['todo'] = "N";
 		$qryInfo['qryInfo']['txt_wrk_tp_atcd'] = $txt_wrk_tp_atcd;
 		
@@ -124,7 +125,7 @@ if(isSet($_POST['pi_no'])){
 						
 		log_message('debug', $sql_packing);
 		
-		$result2 = mysql_query($sql_packing);
+		$result2 = mysqli_query($this-> db-> conn_id, $sql_packing);
 		$qryInfo['qryInfo']['sql2'] = $sql_packing;
 		$qryInfo['qryInfo']['result2'] = $result2;
 		

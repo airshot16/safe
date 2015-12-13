@@ -36,8 +36,8 @@ $sql_cnt = $sql_cnt . " and PART_NM LIKE '%%" .$sch_part_nm. "%%'";
 $count = $this->db->query($sql_cnt)->row(0)->count;
 
 
-//$result = mysql_query($sql_cnt);
-//$row = mysql_fetch_array($result,MYSQL_ASSOC);
+//$result = mysqli_query($this-> db-> conn_id, $sql_cnt);
+//$row = mysqli_fetch_array($result);
 //$count = $row['count'];
 
 if( $count >0 ) {
@@ -59,7 +59,7 @@ $sql = $sql . " and PART_CD LIKE '%%" .$sch_part_cd. "%%'";
 $sql = $sql . " and PART_NM LIKE '%%" .$sch_part_nm. "%%'";
 $sql = $sql . " ORDER BY ord_num, " .$sidx . " " . $sord . " LIMIT " . $start . "," . $limit;
 
-#$result = mysql_query( $sql ) or die("Couldn t execute query.".mysql_error());
+#$result = mysqli_query($this-> db-> conn_id,  $sql ) or die("Couldn t execute query.".mysql_error());
 
 $responce['page'] = $page;
 $responce['total'] = $total_pages;

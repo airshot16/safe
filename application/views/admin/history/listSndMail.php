@@ -60,8 +60,8 @@ if($sch_pi_no!=""){
 $count = $this->db->query($sql_cnt)->row(0)->count;
 
 
-//$result = mysql_query($sql_cnt);
-//$row = mysql_fetch_array($result,MYSQL_ASSOC);
+//$result = mysqli_query($this-> db-> conn_id, $sql_cnt);
+//$row = mysqli_fetch_array($result);
 //$count = $row['count'];
 
 
@@ -107,8 +107,8 @@ $sql = $sql . "	ORDER BY "
 		. $sidx . " " . $sord . " LIMIT " . $start . "," . $limit;
 
 
-#$result = mysql_query( $sql ) or die("Couldn t execute query.".mysql_error());
-#$count = mysql_num_rows( mysql_query( $sql ) );
+#$result = mysqli_query($this-> db-> conn_id,  $sql ) or die("Couldn t execute query.".mysql_error());
+#$count = mysqli_num_rows( mysqli_query($this-> db-> conn_id,  $sql ) );
 $result = $this->db->query($sql);
 
 log_message('debug', "listSndMail:". $sql);

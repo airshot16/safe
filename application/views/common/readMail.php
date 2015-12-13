@@ -86,7 +86,7 @@ if($sndmail_atcd=="00700111"){
 	$sql_dtl = $sql_dtl . " WHERE a.pi_no = b.pi_no";
 	#$sql_dtl = $sql_dtl . " and cd = '0091'";
 	
-#	$result2 = mysql_query( $sql_dtl ) or die("Couldn t execute query.".mysql_error());
+#	$result2 = mysqli_query($this-> db-> conn_id,  $sql_dtl ) or die("Couldn t execute query.".mysql_error());
 	$result2 = $this->db->query ( $sql_dtl );
 	
 	$txt_currency_atcd = "";
@@ -130,8 +130,8 @@ if($sndmail_atcd=="00700111"){
 	$sql_part = $sql_part . " AND a.swp_no = " .$swp_no;
 	$sql_part = $sql_part . " ) a";
 
-#	$result = mysql_query( $sql_part ) or die("Couldn t execute query.".mysql_error());
-#	$row = mysql_fetch_array($result,MYSQL_ASSOC);
+#	$result = mysqli_query($this-> db-> conn_id,  $sql_part ) or die("Couldn t execute query.".mysql_error());
+#	$row = mysqli_fetch_array($result);
 
 	$result = $this->db->query ( $sql_part );
 	$row = $result->row_array();
@@ -163,7 +163,7 @@ if($sndmail_atcd=="00700111"){
 	$sql_dtl = $sql_dtl . " WHERE a.mdl_cd = b.mdl_cd and a.part_ver = b.part_ver and a.part_cd = b.part_cd";
 	$sql_dtl = $sql_dtl . " ORDER BY ord_num";
 	
-#	$result2 = mysql_query( $sql_dtl ) or die("Couldn t execute query.".mysql_error());
+#	$result2 = mysqli_query($this-> db-> conn_id,  $sql_dtl ) or die("Couldn t execute query.".mysql_error());
 	$result2 = $this->db->query ( $sql_dtl );
 	
 	$ctnt_sub = "";
@@ -199,17 +199,19 @@ if($sndmail_atcd=="00700111"){
 }else if($sndmail_atcd=="00700211"){  // Proforma Invoice
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/outer/readInvoice.php");
 	
-	$invoice = readInvoice($pi_no);
+	$invoiceClass=new InvoiceClass();
+	$invoice = $invoiceClass->readInvoice($this->db->conn_id, $pi_no);
 	
-	$ctnt = getPiMailCtnt($ctnt, $invoice);
+	$ctnt = $invoiceClass->getPiMailCtnt($ctnt, $invoice);
 	$ctnt = str_replace("@pi_sndmail_seq", "", $ctnt);
 	
 }else if($sndmail_atcd=="00700411"){  // Commercial Invoice
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/outer/readInvoice.php");
 
-	$invoice = readInvoice($pi_no);
+	$invoiceClass=new InvoiceClass();
+	$invoice = $invoiceClass->readInvoice($this->db->conn_id, $pi_no);
 	
-	$ctnt = getCiMailCtnt($ctnt, $invoice);
+	$ctnt = $invoiceClass->getCiMailCtnt($ctnt, $invoice);
 	$ctnt = str_replace("@ci_sndmail_seq", "", $ctnt);
 	
 }else if($sndmail_atcd=="00700311"){  // 생산의뢰서
@@ -220,10 +222,13 @@ if($sndmail_atcd=="00700111"){
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/order/readEqpOrder.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/docs/readPrdReq.php");
 
-	$prdReq = readEqpOrder($pi_no, $po_no);
-	$prdReq = readPrdReq($prdReq, $pi_no, $po_no);
+	$eqpOrderClass=new EqpOrderClass();
+	$prdReq = $eqpOrderClass->readEqpOrder($this->db->conn_id, $pi_no, $po_no);
+
+	$prdReqClass=new PrdReqClass();
+	$prdReq = $prdReqClass->readPrdReq($this->db->conn_id, $prdReq, $pi_no, $po_no);
 	
-	$ctnt = getPrdReqMailCtnt($ctnt, $prdReq);
+	$ctnt = $prdReqClass->getPrdReqMailCtnt($ctnt, $prdReq);
 	$ctnt = str_replace("-@sendmail_seq", "", $ctnt);
 	
 }else if($sndmail_atcd=="00700321"){  // 부품출고의뢰서
@@ -231,25 +236,30 @@ if($sndmail_atcd=="00700111"){
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/order/readPartOrder.php");
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/docs/readPartReq.php");
 	
-	$partReq = readPartOrder($pi_no, $swp_no);
-	$partReq = readPartReq($partReq, $pi_no, $swp_no);
+	$partOrderClass=new PartOrderClass();
+	$partReq = $partOrderClass->readPartOrder($this->db->conn_id, $pi_no, $swp_no);
 	
-	$ctnt = getPartReqMailCtnt($ctnt, $partReq);
+	$partReqClass=new PartReqClass();
+	$partReq = $partReqClass->readPartReq($this->db->conn_id, $partReq, $pi_no, $swp_no);
+	$ctnt = $partReqClass->getPartReqMailCtnt($ctnt, $partReq);
 	$ctnt = str_replace("-@sendmail_seq", "", $ctnt);
 	
 }else if($sndmail_atcd=="00700511"){  // 출고전표
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/docs/readSlip.php");
 	
-	$slip = readSlip($pi_no);
-	$ctnt = getSlipMailCtnt($ctnt, $slip);
+	$slipClass=new SlipClass();
+	$slip = $slipClass->readSlip($this->db->conn_id, $pi_no);
+	$ctnt = $slipClass->getSlipMailCtnt($ctnt, $slip);
 	$ctnt = str_replace("@slip_sndmail_seq", "", $ctnt);
 	
 }else if($sndmail_atcd=="00700611"){  // Packing List
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/outer/readInvoice.php");
-	$invoice = readInvoice($pi_no);
+	$invoiceClass=new InvoiceClass();
+	$invoice = $invoiceClass->readInvoice($this->db->conn_id, $pi_no);
 	
 	include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/outer/readPacking.php");
-	$ctnt = getPackingMailCtnt($ctnt, $invoice);
+	$packingClass=new PackingClass();
+	$ctnt = $packingClass->getPackingMailCtnt($ctnt, $invoice);
 	
 			
 #	print_r($invoice['invoiceInfo']["wrk_tp_atcd"]);

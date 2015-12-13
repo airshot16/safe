@@ -35,23 +35,24 @@ if(isset($_POST["refs"])){
 
 if(isSet($_POST['pi_no'])){
 	
-	$pi_no = mysql_real_escape_string($pi_no);
-	$csn_addr = mysql_real_escape_string($csn_addr);
-	$csn_tel = mysql_real_escape_string($csn_tel);
-	$csn_fax = mysql_real_escape_string($csn_fax);
-	$csn_attn = mysql_real_escape_string($csn_attn);
-	$buyer = mysql_real_escape_string($buyer);
-	$refs = mysql_real_escape_string($refs);
+	$pi_no = mysqli_real_escape_string($this-> db-> conn_id, $pi_no);
+	$csn_addr = mysqli_real_escape_string($this-> db-> conn_id, $csn_addr);
+	$csn_tel = mysqli_real_escape_string($this-> db-> conn_id, $csn_tel);
+	$csn_fax = mysqli_real_escape_string($this-> db-> conn_id, $csn_fax);
+	$csn_attn = mysqli_real_escape_string($this-> db-> conn_id, $csn_attn);
+	$buyer = mysqli_real_escape_string($this-> db-> conn_id, $buyer);
+	$refs = mysqli_real_escape_string($this-> db-> conn_id, $refs);
 	
 	$sql = "SELECT (select atcd_nm from cm_cd_attr where cd = '0070' and atcd = a.wrk_tp_atcd) txt_wrk_tp_atcd FROM om_ord_inf";
 	$sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
 	$sql = $sql . " AND wrk_tp_atcd >= '00700410'";  // 00700410(INVOICE 발송)
 #	echo $sql;
 	
-	$result=mysql_query($sql);
+	$result=mysqli_query($this-> db-> conn_id, $sql);
 	
 	if($result!=null){
-		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+#		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+		$txt_wrk_tp_atcd = $result->fetch_array()["txt_wrk_tp_atcd"];
 		$qryInfo['qryInfo']['todo'] = "N";
 		$qryInfo['qryInfo']['txt_wrk_tp_atcd'] = $txt_wrk_tp_atcd;
 		

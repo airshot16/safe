@@ -16,8 +16,9 @@ if(isset($_REQUEST["pi_no"])){
 
 
 $sql = "SELECT cnfm_yn from om_ord_inf where pi_no = '" .$sch_pi_no. "'";
-$result = mysql_query( $sql ) or die("Couldn t execute query.".mysql_error());
-$cnfm_yn = mysql_result($result,0,"cnfm_yn");
+$result = mysqli_query($this-> db-> conn_id,  $sql ) or die("Couldn t execute query.".mysql_error());
+#$cnfm_yn = mysql_result($result,0,"cnfm_yn");
+$cnfm_yn = $result->fetch_array()["cnfm_yn"];
 
 $sql = "SELECT 'E' as order_tp";
 $sql = $sql . ",(select mdl_nm from om_mdl where mdl_cd = a.mdl_cd) mdl_nm";
@@ -41,7 +42,7 @@ $sql = $sql . "	ORDER BY order_tp, udt_dt desc, "
 
 log_message('debug', "listDtlOrder:" . $sql);
 
-#$result = mysql_query( $sql ) or die("Couldn t execute query.".mysql_error());
+#$result = mysqli_query($this-> db-> conn_id,  $sql ) or die("Couldn t execute query.".mysql_error());
 $result = $this->db->query($sql);
 
 $qtytot = 0;

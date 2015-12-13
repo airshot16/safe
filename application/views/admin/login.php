@@ -31,7 +31,7 @@
 
 <table style="margin-top:30px;margin-left:150px;vertical-align:top" border="0" cellspacing="0" cellpadding="0">
 <tr>
-	<td><a href="<?php if(SBM_DOMAIN=="http://www.safeleader.esy.es"){ echo "http://webmail.hostinger.kr";}?>" target="_new">webmail</a></td>
+	<td><a href="<?php if(SBM_DOMAIN=="http://www.trdoc.net"){ echo "http://webmail.hostinger.kr";}?>" target="_new">webmail</a></td>
 </tr>
 </table>
 

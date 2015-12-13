@@ -191,13 +191,13 @@ table {
 				<td align='center'>비고</td>
 			</tr>
 			<tr>
-				<td align='center'>sbm@sbmkorea.biz</td>
+				<td align='center'>trdoc@trdoc.net</td>
 				<td>공용</td>
 				<td>영업팀</td>
 				<td>문서전체</td>
 			</tr>
 			<tr>
-				<td align='center'>sales@sbmkorea.biz</td>
+				<td align='center'>sales@trdoc.net</td>
 				<td>백업용</td>
 				<td>관리자</td>
 				<td>주문서(장비,부품), Commercial Invoice, Packing List </td>

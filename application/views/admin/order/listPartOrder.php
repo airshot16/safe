@@ -31,7 +31,7 @@ $sql_dtl = $sql_dtl . " ORDER BY ord_num";
 #echo $sql_dtl;
 log_message("debug", $sql_dtl);
 
-#$result = mysql_query( $sql_dtl ) or die("Couldn t execute query.".mysql_error());
+#$result = mysqli_query($this-> db-> conn_id,  $sql_dtl ) or die("Couldn t execute query.".mysql_error());
 $result = $this->db->query($sql_dtl);
 
 $i=0;

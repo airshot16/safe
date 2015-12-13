@@ -294,7 +294,7 @@ require $_SERVER["DOCUMENT_ROOT"] . '/include/user/authAdm.php';
 		var f = document.searchForm;
 		getYNCombo(f.sch_cnfm_yn, "");
     	getWorkerCombo("00600SL0", f.sch_worker_seq);
-		
+    	
 //		newForm();
     }
 	

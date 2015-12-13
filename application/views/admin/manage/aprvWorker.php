@@ -16,8 +16,8 @@ if(isSet($_POST['worker_seq'])){
 		$target_w_email = $w_email[$i_item];
 		$target_extns_num = $extns_num[$i_item];
 
-		$target_w_email = mysql_real_escape_string($target_w_email);
-		$target_extns_num = mysql_real_escape_string($target_extns_num);
+		$target_w_email = mysqli_real_escape_string($this-> db-> conn_id, $target_w_email);
+		$target_extns_num = mysqli_real_escape_string($this-> db-> conn_id, $target_extns_num);
 		
 		$sql = "UPDATE om_worker";
 		$sql = $sql . " SET w_email = '" .$target_w_email. "', extns_num = '" .$target_extns_num. "'";

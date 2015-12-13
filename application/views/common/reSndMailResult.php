@@ -47,11 +47,11 @@ try {
 	$sql3 = $sql3 . " FROM om_sndmail a, om_sndmail_dtl b";
 	$sql3 = $sql3 . " WHERE a.sndmail_seq = b.sndmail_seq and a.sndmail_seq=" .$sndmail_seq. " and snd_yn='N'";
 
-	$result3 = mysql_query( $sql3);
+	$result3 = mysqli_query($this-> db-> conn_id,  $sql3);
 	$qryInfo['qryInfo']['sql3'] = $sql3;
     $qryResult = "";
 	$i=0;
-	while($row = mysql_fetch_array($result3,MYSQL_ASSOC)) {
+	while($row = mysqli_fetch_array($result3)) {
 		$qryResult['sndMail'][$i]['sndmail_seq'] = $row['sndmail_seq'];
 		$qryResult['sndMail'][$i]['wrk_tp_atcd'] = $row['wrk_tp_atcd'];
 		$qryResult['sndMail'][$i]['sender_email'] = $row['sender_email'];
@@ -65,12 +65,13 @@ try {
 		$qryResult['sndMail'][$i]['pi_no'] = $row['pi_no'];
 		$i++;
 	    
-	    $mail->SetFrom($row['email_from'], $row['sender_nm']);
+//	    $mail->SetFrom($row['email_from'], $row['sender_nm']);
+	    $mail->SetFrom(SBM_PUB_EMAIL, "TRDOC Corp.");
 		if($atcd=="local"){
 		    $mail->AddAddress(SBM_LOCAL_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 #		    echo "mytest";
 	    }else{
-	    	if(SBM_DOMAIN=="http://www.safeleader.esy.es"){
+	    	if(SBM_DOMAIN=="http://www.trdoc.net"){
 		    	if($row['rcpnt_tp_atcd']=="00100010"){  // if the target is dealer -> do not send yet.
 		    		$mail->AddAddress(SBM_PUB_EMAIL);
 		    	}else{
@@ -109,7 +110,7 @@ try {
 		$sql = $sql . " WHERE sndmail_seq = " .$sndmail_seq;
 		$sql = $sql . " and snd_no = " .$row['snd_no'];
 #		echo $sql;
-		$result = mysql_query($sql);
+		$result = mysqli_query($this-> db-> conn_id, $sql);
 		$qryInfo['qryInfo'][$i]['sql'] = $sql;
 		$qryInfo['qryInfo'][$i]['result'] = $result;
 	    

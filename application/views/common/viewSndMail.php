@@ -7,8 +7,8 @@ $sql = "SELECT a.* ";
 $sql = $sql . " FROM om_sndmail a";
 $sql = $sql . "  WHERE a.sndmail_seq = " .$sndmail_seq;
 
-//$result = mysql_query( $sql ) or die("Couldn t execute query.".mysql_error());
-//$row = mysql_fetch_array($result,MYSQL_ASSOC);
+//$result = mysqli_query($this-> db-> conn_id,  $sql ) or die("Couldn t execute query.".mysql_error());
+//$row = mysqli_fetch_array($result);
 //echo $row2['ctnt'];
 
 $query = $this->db->query($sql);

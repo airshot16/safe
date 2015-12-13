@@ -154,13 +154,13 @@ require $_SERVER["DOCUMENT_ROOT"] . '/include/user/auth.php';
 		        	arEmailFwd[arEmailFwd.length]=f.email_fwd[i].value;
 				}
 			}else{
-	        	if(!fncValidEmail(f.email_fwd.value)){
-	        		alert("Email 형식이 맞지않습니다!");
-	        		f.email_fwd[i].select();
-	        		return;
-	        	}else{
+//	        	if(!fncValidEmail(f.email_fwd.value)){
+//	        		alert("Email 형식이 맞지않습니다!");
+//	        		f.email_fwd[i].select();
+//	        		return;
+//	        	}else{
 	        		arEmailFwd[arEmailFwd.length]=f.email_fwd.value;
-	        	}
+//	        	}
 			}
 			if(confirm("입력한 메일주소로 발송됩니다. 계속하시겠습니까?")){
 				var params = {"sndmail_seq":$("#sndmail_seq").val(), "email_fwd":arEmailFwd};  

@@ -32,8 +32,8 @@ $this->db->trans_begin();
 
 $sql = "SELECT * FROM om_ord_inf";
 $sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
-$result=mysql_query($sql);
-$count=mysql_num_rows($result);
+$result=mysqli_query($this-> db-> conn_id, $sql);
+$count=mysqli_num_rows($result);
 
 
 if($swp_no==""){
@@ -54,8 +54,9 @@ if($swp_no==""){
 		$sql_pi = $sql_pi . "		UNION";
 		$sql_pi = $sql_pi . "		SELECT '0001', '" .$cntry_atcd. "'";
 		$sql_pi = $sql_pi . " ) A";
-		$result = mysql_query($sql_pi);
-		$new_pi_no = mysql_result($result,0,"new_pi_no");
+		$result = mysqli_query($this-> db-> conn_id, $sql_pi);
+#		$new_pi_no = mysql_result($result,0,"new_pi_no");
+		$new_pi_no = $result->fetch_array()["new_pi_no"];
 		
 		$sql_ord = "INSERT INTO om_ord_inf";
 		$sql_ord = $sql_ord . " (pi_no, cntry_atcd, dealer_seq, worker_seq, premium_rate, tot_amt, cnfm_yn, wrk_tp_atcd, crt_dt, crt_uid)";
@@ -129,14 +130,16 @@ if($swp_no==""){
 	$sql_po = "SELECT LAST_INSERT_ID() swp_no";
 	
 	$qryInfo['qryInfo']['pi_no'] = $new_pi_no;
-	$qryInfo['qryInfo']['swp_no'] = mysql_result(mysql_query($sql_po),0,"swp_no");
+#	$qryInfo['qryInfo']['swp_no'] = mysql_result(mysqli_query($this-> db-> conn_id, $sql_po),0,"swp_no");
+	$qryInfo['qryInfo']['swp_no'] = mysqli_query($this-> db-> conn_id, $sql_po)->fetch_array()["swp_no"];
 	echo json_encode($qryInfo);
 	
 }else{
 
 	$qryInfo['qryInfo']['todo'] = "U";
 
-	$cnfm_yn = mysql_result($result,0,"cnfm_yn");
+#	$cnfm_yn = mysql_result($result,0,"cnfm_yn");
+	$cnfm_yn = $result->fetch_array()["cnfm_yn"];
 	$qryInfo['qryInfo']['cnfm_yn'] = $cnfm_yn;
 	
 	if($cnfm_yn != "Y"){

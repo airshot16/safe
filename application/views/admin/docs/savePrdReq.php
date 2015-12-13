@@ -122,17 +122,18 @@ if($swm_no!=""){
 	
 	$qryInfo['qryInfo']['todo'] = "U";
 	
-	$pi_no = mysql_real_escape_string($pi_no);
+	$pi_no = mysqli_real_escape_string($this-> db-> conn_id, $pi_no);
 	
 	$sql = "SELECT (select atcd_nm from cm_cd_attr where cd = '0070' and atcd = a.wrk_tp_atcd) txt_wrk_tp_atcd FROM om_ord_inf";
 	$sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
 	$sql = $sql . " AND wrk_tp_atcd >= '00700510'";  // 출고전표 발송(00700510)
 	#echo $sql;
 	
-	$result=mysql_query($sql);
+	$result=mysqli_query($this-> db-> conn_id, $sql);
 	
 	if($result!=null){
-		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+#		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+		$txt_wrk_tp_atcd = $result->fetch_array()["txt_wrk_tp_atcd"];
 		$qryInfo['qryInfo']['todo'] = "N";
 		$qryInfo['qryInfo']['txt_wrk_tp_atcd'] = $txt_wrk_tp_atcd;
 		
@@ -261,8 +262,8 @@ if($swm_no!=""){
 	
 	$sql = "SELECT * FROM om_ord_inf";
 	$sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
-	$result=mysql_query($sql);
-	$count=mysql_num_rows($result);
+	$result=mysqli_query($this-> db-> conn_id, $sql);
+	$count=mysqli_num_rows($result);
 	
 	$sql = "SELECT concat(DATE_FORMAT(now(), '%y%m'),";
 	$sql = $sql . " '-',";

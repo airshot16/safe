@@ -18,7 +18,7 @@ if(isset($_POST["cnt_dlv"])){
 	$cnt_dlv = $_POST["cnt_dlv"];
 }
 
-$pi_no = mysql_real_escape_string($pi_no);
+$pi_no = mysqli_real_escape_string($this-> db-> conn_id, $pi_no);
 
 
 $qryInfo['qryInfo']['todo'] = "N";
@@ -28,12 +28,13 @@ $sql = $sql . " WHERE pi_no = '" .$pi_no. "'";
 $sql = $sql . " AND wrk_tp_atcd != '00700410'";  // INVOICE 발송(00700410)
 #echo $sql;
 
-$result=mysql_query($sql);
+$result=mysqli_query($this-> db-> conn_id, $sql);
 
 
 if($result!=null){
 	
-	$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+#	$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+	$txt_wrk_tp_atcd = $result->fetch_array()["txt_wrk_tp_atcd"];
 	$qryInfo['qryInfo']['todo'] = "N";
 	$qryInfo['qryInfo']['txt_wrk_tp_atcd'] = $txt_wrk_tp_atcd;
 	

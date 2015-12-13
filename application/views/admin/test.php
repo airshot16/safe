@@ -35,8 +35,8 @@ or die("Connection Error: " . mysql_error());
 mysql_select_db($database) or die("Error conecting to db.");
 
 // calculate the number of rows for the query. We need this to paging the result
-$result = mysql_query("SELECT COUNT(*) AS count FROM invheader a, clients b WHERE a.client_id=b.client_id");
-$row = mysql_fetch_array($result,MYSQL_ASSOC);
+$result = mysqli_query($this-> db-> conn_id, "SELECT COUNT(*) AS count FROM invheader a, clients b WHERE a.client_id=b.client_id");
+$row = mysqli_fetch_array($result);
 $count = $row['count'];
 
 // calculation of total pages for the query
@@ -58,14 +58,14 @@ if($start <0) $start = 0;
 
 // the actual query for the grid data
 $SQL = "SELECT a.id, a.invdate, b.name, a.amount,a.tax,a.total,a.note FROM invheader a, clients b WHERE a.client_id=b.client_id ORDER BY $sidx $sord LIMIT $start , $limit";
-$result = mysql_query( $SQL ) or die("Couldn t execute query.".mysql_error());
+$result = mysqli_query($this-> db-> conn_id,  $SQL ) or die("Couldn t execute query.".mysql_error());
 
 // constructing a JSON
 $responce->page = $page;
 $responce->total = $total_pages;
 $responce->records = $count;
 $i=0;
-while($row = mysql_fetch_array($result,MYSQL_ASSOC)) {
+while($row = mysqli_fetch_array($result)) {
     $responce->rows[$i]['id']=$row[id];
     $responce->rows[$i]['cell']=array($row[id],$row[invdate],$row[name],$row[amount],$row[tax],$row[total],$row[note]);
     $i++;

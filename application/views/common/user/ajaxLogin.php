@@ -10,8 +10,8 @@ if(isset($_POST["auth"])){
 session_start();
 
 if(isSet($_REQUEST['uid'])){
-	$uid = mysql_real_escape_string($uid);
-	$pswd = mysql_real_escape_string($pswd);
+	$uid = mysqli_real_escape_string($this-> db-> conn_id, $uid);
+	$pswd = mysqli_real_escape_string($this-> db-> conn_id, $pswd);
 	
 	$sql = "SELECT uid, auth_grp_cd, perms_cd, usr_nm, usr_email, gender_atcd, nation_atcd, active_yn" ;
 	$sql = $sql . ",(case when auth_grp_cd in ('SA','WD','WA','US') then (select team_atcd from om_worker where worker_uid = a.uid) end) team_atcd";
@@ -46,7 +46,7 @@ if(isSet($_REQUEST['uid'])){
 			$sql = "UPDATE om_user
 				    SET last_logindt =now()
 				    WHERE uid ='" .$uid. "'";
-			mysql_query($sql);
+			mysqli_query($this-> db-> conn_id, $sql);
 				
 			echo json_encode($_SESSION);
 		}else{

@@ -5,7 +5,7 @@ $pi_no = $_REQUEST["pi_no"];
 
 if(isSet($_POST['pi_no'])){
 	
-	$pi_no = mysql_real_escape_string($pi_no);
+	$pi_no = mysqli_real_escape_string($this-> db-> conn_id, $pi_no);
 
 	//$this->db->trans_off();
 	$this->db->trans_begin();

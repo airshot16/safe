@@ -86,17 +86,18 @@ if(isset($_REQUEST["pi_rmk"])){
 
 if(isSet($_POST['pi_no'])){
 	
-	$pi_no = mysql_real_escape_string($pi_no);
+	$pi_no = mysqli_real_escape_string($this-> db-> conn_id, $pi_no);
 	
 	$sql = "SELECT (select atcd_nm from cm_cd_attr where cd = '0070' and atcd = a.wrk_tp_atcd) txt_wrk_tp_atcd FROM om_ord_inf";
 	$sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
 	$sql = $sql . " AND wrk_tp_atcd > '00700210'";
 	log_message('debug', "sql:" . ":" .$sql);
 	
-	$result=mysql_query($sql);
+	$result=mysqli_query($this-> db-> conn_id, $sql);
 	
 	if($result!=null){
-		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+#		$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+		$txt_wrk_tp_atcd = $result->fetch_array()["txt_wrk_tp_atcd"];
 		$qryInfo['qryInfo']['todo'] = "N";
 		$qryInfo['qryInfo']['txt_wrk_tp_atcd'] = $txt_wrk_tp_atcd;
 		
@@ -163,7 +164,7 @@ if(isSet($_POST['pi_no'])){
 		
 #		$sql_inv_tot = "SELECT (case when tot_amt is null then 0 else (tot_amt - tot_amt * premium_rate / 100) end) as inv_tot_amt FROM om_ord_inf";
 #		$sql_inv_tot = $sql_inv_tot . " WHERE pi_no ='" .$pi_no. "'";
-#		$result=mysql_query($sql_inv_tot);
+#		$result=mysqli_query($this-> db-> conn_id, $sql_inv_tot);
 #		$inv_tot_amt = mysql_result($result,0,"inv_tot_amt");
 		
 		

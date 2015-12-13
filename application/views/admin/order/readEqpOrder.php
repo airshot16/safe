@@ -1,5 +1,7 @@
 <?php
-function readEqpOrder($pi_no, $po_no){
+Class EqpOrderClass{
+	
+function readEqpOrder($conn_id, $pi_no, $po_no){
 	
 	$sql = "SELECT a.*";
 	$sql = $sql . ", (select atcd_nm from cm_cd_attr where cd = '00B0' and atcd = a.srl_atcd) txt_srl_atcd";
@@ -29,8 +31,8 @@ function readEqpOrder($pi_no, $po_no){
 	$sql = $sql . " ) a";
 	log_message("debug", "readEqpOrder:" .$sql);
 	
-	$result = mysql_query( $sql ) or die("Couldn t execute query.".mysql_error());
-	$row = mysql_fetch_array($result,MYSQL_ASSOC);
+	$result = mysqli_query($conn_id,  $sql ) or die("Couldn t execute query.".mysql_error());
+	$row = mysqli_fetch_array($result);
 	
 	
 	$sql_dtl = "SELECT b.cntry_atcd, b.dealer_seq, b.worker_seq, b.premium_rate, b.tot_amt, b.cnfm_yn, b.cnfm_dt, b.wrk_tp_atcd";
@@ -61,7 +63,7 @@ function readEqpOrder($pi_no, $po_no){
 	#$sql_dtl = $sql_dtl . " and cd = '0091'";
 	log_message('debug', $sql_dtl);
 	
-	$result2 = mysql_query( $sql_dtl ) or die("Couldn t execute query.".mysql_error());
+	$result2 = mysqli_query($conn_id,  $sql_dtl ) or die("Couldn t execute query.".mysql_error());
 	
 	
 	$eqpOrder['eqpOrdInfo']['order_dt'] = $row['order_dt'];
@@ -116,7 +118,7 @@ function readEqpOrder($pi_no, $po_no){
 	$eqpOrder['eqpOrdInfo']['txt_pwr_cab_atcd'] = $row['txt_pwr_cab_atcd'];
 	
 	$i=0;
-	while($row2 = mysql_fetch_array($result2,MYSQL_ASSOC)) {
+	while($row2 = mysqli_fetch_array($result2)) {
 		$eqpOrder['eqpOrdDtlList'][$i]['currency_atch'] = $row2['currency_atch'];
 		$eqpOrder['eqpOrdDtlList'][$i]['fitness_ox'] = $row2['fitness_ox'];
 		$eqpOrder['eqpOrdDtlList'][$i]['fitness'] = $row2['fitness'];
@@ -217,4 +219,7 @@ function getEqpOrderMailCtnt($ctnt, $eqpOrder){
 	
 	return $ctnt;
 }
+
+}
+
 ?>

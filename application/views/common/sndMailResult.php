@@ -48,7 +48,7 @@ try {
 	$sql3 = $sql3 . " WHERE a.sndmail_seq = b.sndmail_seq and a.sndmail_seq=" .$sndmail_seq. " and snd_yn='N'";
 
 	$qryInfo['qryInfo']['sql3'] = $sql3;
-#	$result3 = mysql_query( $sql3);
+#	$result3 = mysqli_query($this-> db-> conn_id,  $sql3);
     $result3 = $this->db->query($sql3);
 
 	$i=0;
@@ -67,7 +67,9 @@ try {
 		$qryResult['sndMail'][$i]['pi_no'] = $row['pi_no'];
 		$i++;
 	    
-	    if($row['rcpnt_tp_atcd']=="00100010"){  // if dealer
+	    $mail->SetFrom(SBM_PUB_EMAIL, "TRDOC Corp.");
+/*	    
+ 		if($row['rcpnt_tp_atcd']=="00100010"){  // if dealer
 			$mail->SetFrom($row['email_from'], $row['rcpnt_nm']); // test
 	    }else{
 	    	if($row['rcpnt_team_atcd']=="00600SL0"){
@@ -76,10 +78,11 @@ try {
 	    		$mail->SetFrom($row['email_from'], $row['sender_nm']);
 	    	}
 	    }
+ */	    
 	    if($atcd=="local"){
 		    $mail->AddAddress(SBM_LOCAL_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 	    }else{
-	    	if(SBM_DOMAIN=="http://www.safeleader.esy.es"){
+	    	if(SBM_DOMAIN=="http://www.trdoc.net"){
 		    	$mail->AddAddress($row['email_to'], $row['rcpnt_nm']); 
 	    	}else if(SBM_DOMAIN=="http://localhost:9090"){
 	    		$mail->AddAddress(SBM_LOCAL_EMAIL);

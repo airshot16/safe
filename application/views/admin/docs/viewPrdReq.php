@@ -6,9 +6,11 @@ include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/order/readEqpOrder
 
 include($_SERVER["DOCUMENT_ROOT"] . "/application/views/admin/docs/readPrdReq.php");
 
-$responce = readEqpOrder($pi_no, $po_no);
+$eqpOrderClass=new EqpOrderClass();
+$responce = $eqpOrderClass->readEqpOrder($this->db->conn_id, $pi_no, $po_no);
 
-$responce = readPrdReq($responce, $pi_no, $po_no);
+$prdReqClass=new PrdReqClass();
+$responce = $prdReqClass->readPrdReq($this->db->conn_id, $responce, $pi_no, $po_no);
 
 echo json_encode($responce);
 ?>

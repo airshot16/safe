@@ -87,7 +87,7 @@ try {
 	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
 	    $mail->SetFrom(SBM_LOCAL_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 	    $mail->AddAddress(SBM_LOCAL_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
-    }else if(SBM_DOMAIN=="http://www.safeleader.esy.es"){
+    }else if(SBM_DOMAIN=="http://www.trdoc.net"){
 		$mail->Host = SBM_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
 	    $mail->Port = SBM_SMTP_PORT; // email 보낼때 사용할 서버를 지정

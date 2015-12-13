@@ -20,7 +20,7 @@ if(isset($_POST["ship_dt"])){
 	$ship_dt = str_replace("-", "", $ship_dt);
 }
 
-$pi_no = mysql_real_escape_string($pi_no);
+$pi_no = mysqli_real_escape_string($this-> db-> conn_id, $pi_no);
 
 
 $qryInfo['qryInfo']['todo'] = "N";
@@ -30,12 +30,13 @@ $sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
 $sql = $sql . " AND wrk_tp_atcd >= '00700510'";  // 출고전표 발송(00700510)
 #echo $sql;
 
-$result=mysql_query($sql);
+$result=mysqli_query($this-> db-> conn_id, $sql);
 
 
 if($result!=null){
 	
-	$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+#	$txt_wrk_tp_atcd = mysql_result($result,0,"txt_wrk_tp_atcd");
+	$txt_wrk_tp_atcd = $result->fetch_array()["txt_wrk_tp_atcd"];
 	$qryInfo['qryInfo']['todo'] = "N";
 	$qryInfo['qryInfo']['txt_wrk_tp_atcd'] = $txt_wrk_tp_atcd;
 	
@@ -53,7 +54,7 @@ if($result!=null){
 	$sql_req = $sql_req . ", udt_uid = '" .$_SESSION['ss_user']['uid']. "'";
 #	echo $sql_req;
 	
-	$result=mysql_query($sql_req);
+	$result=mysqli_query($this-> db-> conn_id, $sql_req);
 	$qryInfo['qryInfo']['sql'] = $sql_req;
 	$qryInfo['qryInfo']['result'] = $result;
 

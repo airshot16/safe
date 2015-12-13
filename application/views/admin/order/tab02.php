@@ -124,7 +124,7 @@ var partListParam = {
 
 $(document).ready(function(e) {	
 
-	$('#btnSubmit').attr('disabled',true);
+	$('#btnSubmit').attr('disabled',false);
 
 <?php
 if($_SESSION['ss_user']['auth_grp_cd']=="UD"){
@@ -231,7 +231,7 @@ if($_SESSION['ss_user']['auth_grp_cd']=="UD"){
                     be = "<img src='/images/part/image"  + rowData.srl_no +  ".png' height='20'>";
                     jQuery("#list").jqGrid('setRowData',rowId,{pt_img:be});
 				}
-                initPartList();
+//                initPartList();
 			},	            
             
 			rowNum:200,
@@ -365,7 +365,6 @@ if($_SESSION['ss_user']['auth_grp_cd']=="UD"){
 	function initForm() {
 		var f = document.searchForm;
 		getModelCombo("", f.sch_mdl_cd);
-		
 		var f_add = document.addForm;
 		<?php
 		if(isset($_REQUEST["edit_mode"])==false){
@@ -713,7 +712,6 @@ if(isset($_REQUEST["edit_mode"])){
             arUnitPrdCost[arUnitPrdCost.length]=arData[i].price; //
             arWeight[arWeight.length]=arData[i].weight; //
 		}
-		
         var params = {
         		"wrk_tp_atcd": "00700110",
         		"sndmail_atcd": "00700112",
@@ -737,18 +735,20 @@ if(isset($_REQUEST["edit_mode"])){
     }
 
     function fn_crtPartOrder(params){
-        $.ajax({
+    	$.ajax({
 	        type: "POST",
 	        url: "/index.php/admin/order/crtPartOrder",
 	        async: false,
 	        dataType: "json",
 	        data: params,
 	        cache: false,
+            error: function() {
+                alert('Error loading targetUrl');
+            },
 	        success: function(result, status, xhr){
-//				$("#error").html(result);
 	            var todo = result.qryInfo.todo;	  
 	            if(todo == "C"){
-		            var qryInfo = result.qryInfo;	            	
+	            	var qryInfo = result.qryInfo;	            	
     				if(qryInfo.result==false)
     		        {
     					$("#error").html("<span style='color:#cc0000'>Error:</span> Sql Error!. " + qryInfo.sql);
@@ -781,7 +781,7 @@ if(isset($_REQUEST["edit_mode"])){
     					$("#error").html("<span style='color:#cc0000'>Error:</span> Sql Error!. " + qryInfo.sql4);
             			return;
     				}else{
-//    		        	alert(qryInfo.result4 + ":" + qryInfo.sql4);
+//   		        	alert(qryInfo.result4 + ":" + qryInfo.sql4);
     				}
 					fn_gridReload();
 					initForm();

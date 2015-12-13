@@ -103,23 +103,23 @@ $this->db->trans_begin();
 
 if(isSet($_POST['usr_email'])){
 	
-	$dealer_nm = mysql_real_escape_string($dealer_nm);
-	$cmpy_nm = mysql_real_escape_string($cmpy_nm);
-#	$premium_rate = mysql_real_escape_string($premium_rate);
-	$tel = mysql_real_escape_string($tel);
-	$bank_atcd = mysql_real_escape_string($bank_atcd);
-	$addr = mysql_real_escape_string($addr);
-	$nation_atcd = mysql_real_escape_string($nation_atcd);
-	$gender_atcd = mysql_real_escape_string($gender_atcd);
-	$usr_email = mysql_real_escape_string($usr_email);
-	$fax = mysql_real_escape_string($fax);
-	$job_tit = mysql_real_escape_string($job_tit);
-#	$cntry_atcd = mysql_real_escape_string($cntry_atcd);
-	$homepage = mysql_real_escape_string($homepage);
-	$exper_years = mysql_real_escape_string($exper_years);
-	$maincust_atcd = mysql_real_escape_string($maincust_atcd);
-	$comments = mysql_real_escape_string($comments);
-	$mkt_inf = mysql_real_escape_string($mkt_inf);
+	$dealer_nm = mysqli_real_escape_string($this-> db-> conn_id, $dealer_nm);
+	$cmpy_nm = mysqli_real_escape_string($this-> db-> conn_id, $cmpy_nm);
+#	$premium_rate = mysqli_real_escape_string($this-> db-> conn_id, $premium_rate);
+	$tel = mysqli_real_escape_string($this-> db-> conn_id, $tel);
+	$bank_atcd = mysqli_real_escape_string($this-> db-> conn_id, $bank_atcd);
+	$addr = mysqli_real_escape_string($this-> db-> conn_id, $addr);
+	$nation_atcd = mysqli_real_escape_string($this-> db-> conn_id, $nation_atcd);
+	$gender_atcd = mysqli_real_escape_string($this-> db-> conn_id, $gender_atcd);
+	$usr_email = mysqli_real_escape_string($this-> db-> conn_id, $usr_email);
+	$fax = mysqli_real_escape_string($this-> db-> conn_id, $fax);
+	$job_tit = mysqli_real_escape_string($this-> db-> conn_id, $job_tit);
+#	$cntry_atcd = mysqli_real_escape_string($this-> db-> conn_id, $cntry_atcd);
+	$homepage = mysqli_real_escape_string($this-> db-> conn_id, $homepage);
+	$exper_years = mysqli_real_escape_string($this-> db-> conn_id, $exper_years);
+	$maincust_atcd = mysqli_real_escape_string($this-> db-> conn_id, $maincust_atcd);
+	$comments = mysqli_real_escape_string($this-> db-> conn_id, $comments);
+	$mkt_inf = mysqli_real_escape_string($this-> db-> conn_id, $mkt_inf);
 
 	
 	
@@ -127,10 +127,10 @@ if(isSet($_POST['usr_email'])){
 	$sql = $sql . " WHERE usr_email ='" .$usr_email. "'";
 #	echo $sql;
 	
-	$result=mysql_query($sql);
-	$count=mysql_num_rows($result);
+	$result=mysqli_query($this-> db-> conn_id, $sql);
+	$count=mysqli_num_rows($result);
 	
-	$row=mysql_fetch_array($result,MYSQL_ASSOC);
+	$row=mysqli_fetch_array($result);
 	
 	if($count==0)
 	{

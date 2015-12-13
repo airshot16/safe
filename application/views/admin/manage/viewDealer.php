@@ -12,8 +12,8 @@ $sql = $sql . "  WHERE a.dealer_uid = b.uid";
 $sql = $sql . "  and a.dealer_seq = " .$dealer_seq;
 $sql = $sql . ") a";
 
-#$result = mysql_query( $sql ) or die("Couldn t execute query.".mysql_error());
-#$row = mysql_fetch_array($result,MYSQL_ASSOC);
+#$result = mysqli_query($this-> db-> conn_id,  $sql ) or die("Couldn t execute query.".mysql_error());
+#$row = mysqli_fetch_array($result);
 
 $result = $this->db->query ( $sql );
 

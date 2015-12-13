@@ -130,10 +130,10 @@ session_start();
 //$this->db->trans_off();
 $this->db->trans_begin();
 
-$qty = mysql_real_escape_string($qty);
-$remark = mysql_real_escape_string($remark);
+$qty = mysqli_real_escape_string($this-> db-> conn_id, $qty);
+$remark = mysqli_real_escape_string($this-> db-> conn_id, $remark);
 $delivery_dt = str_replace("-", "", $delivery_dt);
-$etc_terms = mysql_real_escape_string($etc_terms);
+$etc_terms = mysqli_real_escape_string($this-> db-> conn_id, $etc_terms);
 
 
 $wrk_tp_atcd = "00700110";
@@ -141,8 +141,8 @@ $sndmail_atcd = "00700111";
 
 $sql = "SELECT * FROM om_ord_inf";
 $sql = $sql . " WHERE pi_no ='" .$pi_no. "'";
-$result=mysql_query($sql);
-$count=mysql_num_rows($result);
+$result=mysqli_query($this-> db-> conn_id, $sql);
+$count=mysqli_num_rows($result);
 
 
 if($po_no==""){
@@ -163,8 +163,9 @@ if($po_no==""){
 		$sql_pi = $sql_pi . "		UNION";
 		$sql_pi = $sql_pi . "		SELECT '0001', '" .$cntry_atcd. "'";
 		$sql_pi = $sql_pi . " ) A";
-		$result = mysql_query($sql_pi);
-		$new_pi_no = mysql_result($result,0,"new_pi_no");
+		$result = mysqli_query($this-> db-> conn_id, $sql_pi);
+#		$new_pi_no = mysql_result($result,0,"new_pi_no");
+		$new_pi_no = $result->fetch_array()["new_pi_no"];
 		
 		$sql_ord = "INSERT INTO om_ord_inf";
 		$sql_ord = $sql_ord . " (pi_no, cntry_atcd, dealer_seq, worker_seq, premium_rate, tot_amt, cnfm_yn, wrk_tp_atcd, crt_dt, crt_uid)";
@@ -243,7 +244,8 @@ if($po_no==""){
 	$sql_po = "SELECT LAST_INSERT_ID() po_no";
 	
 	$qryInfo['qryInfo']['pi_no'] = $new_pi_no;
-	$qryInfo['qryInfo']['po_no'] = mysql_result(mysql_query($sql_po),0,"po_no");
+#	$qryInfo['qryInfo']['po_no'] = mysql_result(mysqli_query($this-> db-> conn_id, $sql_po),0,"po_no");
+	$qryInfo['qryInfo']['po_no'] = mysqli_query($this-> db-> conn_id, $sql_po)->fetch_array()["po_no"];
 	echo json_encode($qryInfo);
 		
 	
@@ -251,7 +253,8 @@ if($po_no==""){
 	
 	$qryInfo['qryInfo']['todo'] = "U";
 	
-	$cnfm_yn = mysql_result($result,0,"cnfm_yn");
+#	$cnfm_yn = mysql_result($result,0,"cnfm_yn");
+	$cnfm_yn = $result->fetch_array()["cnfm_yn"];
 	$qryInfo['qryInfo']['cnfm_yn'] = $cnfm_yn;
 
 			
