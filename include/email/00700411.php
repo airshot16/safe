@@ -345,7 +345,7 @@ body { left-margin: 0.19685039370079in; right-margin: 0.19685039370079in; top-ma
 		  <tr id="partsDiv" style="display:@spareDiv" class="row22">
 			<td class="column0 style3 s"></td>
 			<td class="column1 style54 s style05">@listNo_3)</td>
-			<td class="column4 style54 s style00"><div style="padding-left: 10px;">Currency Discrimination Counter Spare Parts</div></td>
+			<td class="column4 style54 s style00"><div style="padding-left: 10px;">Spare Parts</div></td>
 			<td class="column25 style54 s style05">@qty Units</td>
 			<td class="column30 style54 s style05"></td>
 			<td class="column36 style001 s">$ @amount</div>

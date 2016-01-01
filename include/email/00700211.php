@@ -156,7 +156,7 @@ body { left-margin: 0.98425196850394in; right-margin: 0.98425196850394in; top-ma
 		  </tr>
 		  <tr class="row18">
 			<td class="column0 style25 null"></td>
-			<td class="column1 style26 s" colspan="3"><div id="eqpDiv" style="display:@eqpDiv;padding-left: 10px;">Currency Discrimination Counter</div></td>
+			<td class="column1 style26 s" colspan="3"><div id="eqpDiv" style="display:@eqpDiv;padding-left: 10px;"></div></td>
 			<td class="column4 style28 null"></td>
 			<td class="column5 style18 null"></td>
 			<td class="column6 style18 null"></td>
@@ -193,7 +193,7 @@ body { left-margin: 0.98425196850394in; right-margin: 0.98425196850394in; top-ma
 			<td class="column6 style18 null"></td>
 		  </tr>
 		  <tr class="row18" id="eqpHwOptDiv" style="display:@eqpHwOptDiv">
-			<td class="column0 style25 null">HW Option</td>
+			<td class="column0 style25 null">Options</td>
 			<td class="column1 style26 s" colspan="3"><div style="padding-left: 10px;line-height:20px;">@txt_opt_hw_atcd</div></td>
 			<td class="column4 style28 null"><div style="line-height:20px;">@opt_qty</div></td>
 			<td class="column5 style18 null"><div style="line-height:20px;">@opt_unit_prc</div></td>

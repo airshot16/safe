@@ -345,7 +345,7 @@ body { left-margin: 0.19685039370079in; right-margin: 0.19685039370079in; top-ma
 		  <tr id="spareDiv" style="display:@spareDiv" class="row22">
 			<td class="column0 style3 s"></td>
 			<td class="column1 style54 s style05">@part_carton_no</td>
-			<td class="column4 style54 s style00">Currency Discrimination Counter Spare Parts</td>
+			<td class="column4 style54 s style00">Spare Parts</td>
 			<td class="column25 style54 s style207">@part_cartons Cartons</td>
 			<td class="column30 style54 s style207">@part_net_wgt Kg&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			<td class="column36 style54 s style207">@part_gross_wgt Kg
@@ -357,7 +357,7 @@ body { left-margin: 0.19685039370079in; right-margin: 0.19685039370079in; top-ma
 		  <tr id="addonDiv" style="display:@addonDiv" class="row22">
 			<td class="column0 style3 s"></td>
 			<td class="column1 style54 s style05">@addon_carton_no</td>
-			<td class="column4 style54 s style00">Addon - @addon</td>
+			<td class="column4 style54 s style00">@addon</td>
 			<td class="column25 style54 s style207">@addon_cartons Cartons</td>
 			<td class="column30 style54 s style207">&nbsp;&nbsp;&nbsp;&nbsp;</td>
 			<td class="column36 style54 s style207">@addon_gross_wgt Kg

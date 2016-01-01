@@ -100,9 +100,9 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		  </tr>
 		  <tr>
 			<td rowspan=2 colspan="3" class="style01">SERIAL NUMBER</td>
-			<td colspan=2 class="style01" WIDTH=7%>SRL</td>
-			<td colspan=2 class="style01" WIDTH=7%>P-OCR</td>
-			<td colspan=2 class="style01" WIDTH=7%>S-OCR</td>
+			<td colspan=2 class="style01" WIDTH=7%>Label</td>
+			<td colspan=2 class="style01" WIDTH=7%>Sign</td>
+			<td colspan=2 class="style01" WIDTH=7%>Options</td>
 			<td colspan=9 align=left id="srl_c">@srl_c</td>
 			<td class="style01">기타</td>
 		  </tr>
@@ -114,12 +114,12 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 			<td></td>
 		  </tr>
 		  <tr>
-			<td rowspan=2 colspan="3" class="style01">CF DETECTOR</td>
-		    <td colspan=2 class="style01">UV</td>
-			<td colspan=2 class="style01">MG</td>
-			<td colspan=2 class="style01">MRA</td>
-			<td colspan=2 class="style01"><div style="display:@detector_ir_div">IR</div></td>
-			<td colspan=3 class="style01"><div style="display:@detector_tape_div">Tape Detector</div></td>
+			<td rowspan=2 colspan="3" class="style01">BRAND NAME</td>
+		    <td colspan=2 class="style01">HANKOOK</td>
+			<td colspan=2 class="style01">NEXEN</td>
+			<td colspan=2 class="style01">KUMHO</td>
+			<td colspan=2 class="style01"><div style="display:@detector_ir_div">MICHELIN</div></td>
+			<td colspan=3 class="style01"><div style="display:@detector_tape_div">GOODYEAR</div></td>
 			<td colspan=5 class="style01">기타</td>
 		  </tr> 
 		  <tr>
@@ -136,18 +136,18 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		    <td colspan=5></td>
 		  </tr>
 		  <tr>
-			<td rowspan=3 colspan="3" class="style01">Accessaries<br>(Bill Guide, Brush)</td>
-			<td colspan=6 class="style01">Serial Printer Cable</td>
+			<td rowspan=3 colspan="3" class="style01">Quality</td>
+			<td colspan=6 class="style01">A Grade</td>
 			<td colspan=10 align=center>@srl_prn_cab
 			</td>
 		  </tr>
 		  <tr>
-			<td colspan=6 class="style01">Calibration Sheet</td>
+			<td colspan=6 class="style01">B Grade</td>
 			<td colspan=10 align=center>@calibr_sheet
 			</td>
 		  </tr>
 		  <tr>
-			<td colspan=6 class="style01">PC Cable</td>
+			<td colspan=6 class="style01">C Grade</td>
 			<td colspan=10 align=center>@pc_cab
 			</td>
 		  </tr>
@@ -169,7 +169,7 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 						</TR>
 						<!-- SB-9 -->
 						<TR id="snc_div" style="display:@snc_div">
-							<TD class="style01" width=140px><div>SNC</div></TD>
+							<TD class="style01" width=140px><div>Serial Number Copy</div></TD>
 							<TD align=center colspan=2 >@snc</TD>
 						</TR>
 						</TABLE>
@@ -335,35 +335,31 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 			</td>
 		  </tr>
 		  <tr>
-			<td rowspan=8 colspan="3" class="style01">USER OPTION</td>
-		    <td colspan=6 class="style01">Language (LCD)</td>
+			<td rowspan=7 colspan="3" class="style01">USER OPTION</td>
+		    <td colspan=6 class="style01">Rim Diameter</td>
 			<td colspan=12 align=center>@txt_lcd_lang_atcd</td>
 		  </tr>
 		  <tr>
-		    <td colspan=6 class="style01">LCD Color</td>
+		    <td colspan=6 class="style01">Section Width</td>
 			<td colspan=12 align=center>@txt_lcd_color_atcd</td>
 		  </tr>
 		  <tr>
-		    <td colspan=6 class="style01">LCD Window</td>
+		    <td colspan=6 class="style01">Out Box</td>
 			<td colspan=12 align=center>@lcd_mdl_nm</td>
 		  </tr>
 		  <tr>
-		    <td colspan=6 class="style01">Out Box</td>
+		    <td colspan=6 class="style01">Print</td>
 			<td colspan=12 align=center>@box_mdl_nm</td>
 		  </tr>
 		  <tr>
-		    <td colspan=6 class="style01">Label</td>
-			<td colspan=12 align=center>@label_mdl_nm</td>
-		  </tr>
-		  <tr>
-		    <td colspan=6 class="style01">PWR / Printer Power Cable</td>
+		    <td colspan=6 class="style01">Carcass</td>
 			<td colspan=12 style="text-align: center;vertical-align: middle;">
 			@pwr_cab
 			</td>
 		  </tr>
 		  <tr>
 		    <td colspan=6 class="style01">User's Manual</td>
-			<td colspan=12 align=center>@txt_manual_lang_atcd, @mdl_nm용
+			<td colspan=12 align=center>@txt_manual_lang_atcd
 			</td>
 		  </tr>
 		  <tr>

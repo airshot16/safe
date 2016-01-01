@@ -104,16 +104,16 @@ body { left-margin: 0.43307086614173in; right-margin: 0.39370078740157in; top-ma
 			</td>
 		  </tr>
 		  <tr>
-			<td class="style01" colspan=2>LCD Color</td>
+			<td class="style01" colspan=2>Section Width</td>
 			<td colspan=3>@txt_lcd_color_atcd
 			</td>
-			<td class="style01">LCD Language</td>
+			<td class="style01">Rim Diameter</td>
 			<td>@txt_lcd_lang_atcd
 			</td>
 		   	<td colspan=4></td>
 		  </tr>
 		  <tr>
-			<td class="style01" colspan=2>Reject Pocket Type</td>
+			<td class="style01" colspan=2>Aspect Ratio</td>
 			<td colspan=3>@txt_rjt_pkt_tp_atcd
 			</td>
 			<td></td>
@@ -121,7 +121,7 @@ body { left-margin: 0.43307086614173in; right-margin: 0.39370078740157in; top-ma
 			</td>
 		  </tr>
 		  <tr class="row18">
-			<td class="style01" colspan=2>Power Cable</td>
+			<td class="style01" colspan=2>Carcass</td>
 			<td colspan=3>@txt_pwr_cab_atcd
     		</td>
 			<td class="style01">Other Options</td>
