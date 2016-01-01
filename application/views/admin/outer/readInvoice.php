@@ -233,7 +233,7 @@ Class InvoiceClass{
 			$courier = "";
 			$currency = "";
 			foreach($invoice['orderEqpList'] as $orderEqpList) {
-				$mdl_nm .= $orderEqpList['mdl_nm'] . "  Currency Discrimination Counter<br>";
+				$mdl_nm .= $orderEqpList['mdl_nm'] . "<br>";
 				$eqp_qty .= $orderEqpList['eqp_qty'] . " Units<br>";
 				$tot_qty += $orderEqpList['eqp_qty'];
 				$txt_amt .= "$ " . $orderEqpList['txt_amt'] . "<br>";

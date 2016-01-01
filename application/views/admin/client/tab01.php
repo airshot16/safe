@@ -101,7 +101,7 @@
 		  <tr>
 			<td class="style01">Comments</td>
 			<td class="column1">&nbsp;</td>
-			<td colspan=3><textarea cols="60" rows="5" id="cmnt" name="cmnt" placeholder="Please comment interesting model name."></textarea></td>
+			<td colspan=3><textarea cols="60" rows="5" id="cmnt" name="cmnt" placeholder="Please comment interesting Tire-model name."></textarea></td>
 		  </tr>
 		  <tr class="row19">
 			<td class="column0">&nbsp;</td>

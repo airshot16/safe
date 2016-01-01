@@ -35,7 +35,7 @@
 	<table border="0" cellpadding="1" cellspacing="1" id="sheet0" width=950>
 		<tbody>
 		  <tr>
-			<td colspan=6 class="style01">Please fill in your details below if you want to be a distributor of SB machines. We will contact you soon.</td>
+			<td colspan=6 class="style01">Please fill in your details below if you want to be a distributor of TRDOC Container. We will contact you soon.</td>
 		  </tr>
 		  <tr height="5px">
 			<td colspan=6></td>
@@ -92,7 +92,7 @@
 			<td colspan=2>&nbsp;</td>
 		  </tr>
 		  <tr>
-			<td class="style01">Expierence in cash handling machine</td>
+			<td class="style01">Expierence in importer(TCR/TMGR/TSR)</td>
 			<td></td>
 			<td><input type="text" id="exper_years" name="exper_years" size=4 maxlength=4 style="border: 1;ime-mode:disabled" onKeyup="fncOnlyNumber(this);">years</td>
 			<td colspan=3>&nbsp;</td>
@@ -109,13 +109,13 @@
 		  <tr>
 			<td class="style01">Comments</td>
 			<td></td>
-			<td colspan=4><textarea cols="80" rows="5" id="comments" name="comments" maxlength=1000 placeholder="Please comment interesting model name."></textarea></td>
+			<td colspan=4><textarea cols="80" rows="5" id="comments" name="comments" maxlength=1000 placeholder="Please comment interesting Tire-model name."></textarea></td>
 		  </tr>
 		  <tr>
 			<td class="style01">Market information</td>
 			<td></td>
 			<td colspan=4>
-			<textarea cols="80" rows="5" id="mkt_inf" name="mkt_inf" maxlength=2000 placeholder="Please describe your market information.<?php echo chr(13) . chr(10);?>The number of banks and their branch, CIT, etc.<?php echo chr(13) . chr(10);?>Bank policiesThe names of popular models &amp; Price"></textarea>
+			<textarea cols="80" rows="5" id="mkt_inf" name="mkt_inf" maxlength=2000 placeholder="Please describe your market information.<?php echo chr(13) . chr(10);?>The number of Tire-Shop and their branch, Sales, etc.<?php echo chr(13) . chr(10);?>The names of popular Tire-model &amp; Price"></textarea>
 			</textarea></td>
 		  </tr>
 		  <tr>

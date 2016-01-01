@@ -371,7 +371,7 @@ body { left-margin: 0.35433070866142in; right-margin: 0.31496062992126in; top-ma
 		  <tr class="row18">
 			<td class="column0 style22 s" colspan=3>P-708-01</td>
 			<td class="column3 style23 null"></td>
-			<td class="column4 style24 s">㈜에스비엠</td>
+			<td class="column4 style24 s">SafeLeader Inc.</td>
 			<td class="column5 style23 null"></td>
 			<td class="column6 style23 null">
 			<td class="column8 style24 s" colspan=2>A4(210 X297mm)</td>
@@ -497,7 +497,7 @@ body { left-margin: 0.35433070866142in; right-margin: 0.31496062992126in; top-ma
 		  <tr class="row25">
 			<td class="column0 style29 null"></td>
 			<td class="column1 style15 null"></td>
-			<td class="column2 style35 s" colspan=6>상기  본인은  ㈜에스비엠의  Banking  Machine(<input type=text id="cartons" style="border:none;width: 30px;font-size: 17pt;vertical-align: middle;text-align:center">) Carton을  인수 하였음을 확인합니다.</td>
+			<td class="column2 style35 s" colspan=6>상기  본인은  SafeLeader Inc.의  Tire(<input type=text id="cartons" style="border:none;width: 30px;font-size: 17pt;vertical-align: middle;text-align:center">) Carton을  인수 하였음을 확인합니다.</td>
 			<td class="column8 style31 null"></td>
 			<td class="column9">&nbsp;</td>
 			<td class="column10">&nbsp;</td>

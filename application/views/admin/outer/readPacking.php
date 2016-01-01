@@ -43,7 +43,7 @@ Class PackingClass{
 			$eqp_qty = "";
 			$eqp_net_wgt = "";
 			foreach($invoice['orderEqpList'] as $orderEqpList) {
-				$mdl_nm .= $orderEqpList['mdl_nm'] . "  Currency Discrimination Counter ( " . $orderEqpList['eqp_qty'] . " )<br>";
+				$mdl_nm .= $orderEqpList['mdl_nm'] . "  ( " . $orderEqpList['eqp_qty'] . " )<br>";
 				$eqp_qty += $orderEqpList['eqp_qty'];
 				$tot_qty += $orderEqpList['eqp_qty'];
 				$eqp_net_wgt += $orderEqpList['net_wgt'];
@@ -82,7 +82,7 @@ Class PackingClass{
 			$ctnt = str_replace("@addonDiv", "", $ctnt);
 			$addon = "";
 			if($invoice['eqpHwOptList']!=null){
-				$addon .= "HW Option";
+				$addon .= "Options";
 			}
 			if($invoice['eqpHwOptList']!=null && $invoice['invoiceInfo']['repr_qty']!=null){
 				$addon .= ", ";

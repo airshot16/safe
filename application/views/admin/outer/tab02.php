@@ -740,7 +740,7 @@ if(isset($_REQUEST["edit_mode"])){
 	        eqpDiv.style.display = ""
 			$.each(orderEqpList, function(key) {
 				var targetInfo = orderEqpList[key];
-				mdl_nm += targetInfo.mdl_nm + "  Currency Discrimination Counter<br>";
+				mdl_nm += targetInfo.mdl_nm + "  <br>";
 				eqp_qty += eval(targetInfo.eqp_qty);
 				eqp_amt += eval(targetInfo.amt);
 				tot_qty += eval(targetInfo.eqp_qty);
@@ -751,7 +751,7 @@ if(isset($_REQUEST["edit_mode"])){
 	        $("#eqp_amt").html("$ " + fnc_commify(eqp_amt));
 		}
 		
-		var spare_parts = "Currency Discrimination Counter Spare Parts";
+		var spare_parts = "Spare Parts";
 		var qty = 0;
 //		var unit_price = 0;
 		var amount = 0;

@@ -668,7 +668,7 @@ body { left-margin: 0.19685039370079in; right-margin: 0.19685039370079in; top-ma
 		  <tr id="spareDiv" style="display:none" class="row22">
 			<td class="column0 style3 s"></td>
 			<td class="column1 style54 s style05"><input type=text id="part_carton_no" name="part_carton_no" value="" size="3" maxlength=8 style="text-align: right;ime-mode:disabled"></td>
-			<td class="column4 style54 s style00">Currency Discrimination Counter Spare Parts</td>
+			<td class="column4 style54 s style00">Spare Parts</td>
 			<td class="column25 style54 s style207"><input type=text id="part_cartons" name="part_cartons" value="" size="3" maxlength=4 style="text-align: right" onKeyup="fncOnlyNumber(this);"></td>
 			<td class="column30 style54 s style207"><div id="part_net_wgt_div"></div></td>
 			<td class="column36 style54 s style207"><div id="part_gross_wgt_div"><input type=text id="part_gross_wgt" name="part_gross_wgt" size="3" maxlength=4 style="text-align: right" onKeyup="fncOnlyDecimal(this);"> Kg</div></td>
@@ -802,7 +802,7 @@ if(isset($_REQUEST["edit_mode"])){
 		
 	    td_2.appendChild(eqp_carton_no);
 	    td_2.setAttribute('class','style54 s style05');
-		td_3.appendChild(document.createTextNode(eqpInfo.mdl_nm + "  Currency Discrimination Counter"));
+		td_3.appendChild(document.createTextNode(eqpInfo.mdl_nm));
 	    td_3.setAttribute('class','style00');
 	    td_4.appendChild(document.createTextNode(eqpInfo.eqp_qty));
 	    td_4.appendChild(document.createTextNode(" Cartons"));
@@ -877,7 +877,7 @@ if(isset($_REQUEST["edit_mode"])){
 			$.each(orderEqpList, function(key) {
 				var targetInfo = orderEqpList[key];
 //				fn_addEqpRow('carton_list_div', targetInfo);
-				mdl_nm += targetInfo.mdl_nm + "  Currency Discrimination Counter ( " + targetInfo.eqp_qty + " )<br>";
+				mdl_nm += targetInfo.mdl_nm + "  ( " + targetInfo.eqp_qty + " )<br>";
 				eqp_qty += eval(targetInfo.eqp_qty);
 				eqp_net_wgt += eval(targetInfo.net_wgt) * eqp_qty;
 				eqp_gross_wgt += eval(targetInfo.gross_wgt) * eqp_qty;
@@ -893,7 +893,7 @@ if(isset($_REQUEST["edit_mode"])){
         $("#tot_eqp_qty").val(tot_cartons);
                
 		
-		var spare_parts = "Currency Discrimination Counter Spare Parts";
+		var spare_parts = "Spare Parts";
 		var part_net_wgt = 0;
 		var part_gross_wgt = 0;
 		if(orderPartList!=null){
@@ -913,9 +913,9 @@ if(isset($_REQUEST["edit_mode"])){
 		 		
 		if(invoiceInfo.repr_qty!=null || eqpHwOptList!=null){
 			addonDiv.style.display = "";
-			var addon = "Addon - ";
+			var addon = "";
 			if(eqpHwOptList!=null){
-				addon += "HW Option";
+				addon += "Options";
 			}
 			if(eqpHwOptList!=null || invoiceInfo.repr_qty!=null){
 				addon += ", ";

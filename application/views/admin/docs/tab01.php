@@ -168,9 +168,9 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		  </tr>
 		  <tr id="srl_01" style="display:none">
 			<td rowspan=2 colspan="3" class="style01">SERIAL NUMBER</td>
-			<td colspan=2 class="style01">SRL</td>
-			<td colspan=2 class="style01">P-OCR</td>
-			<td colspan=2 class="style01">S-OCR</td>
+			<td colspan=2 class="style01">Label</td>
+			<td colspan=2 class="style01">Sign</td>
+			<td colspan=2 class="style01">Options</td>
 			<td colspan=9 align=left><div id="srl_c" width=5%></div></td>
 			<td class="style01">기타</td>
 		  </tr>
@@ -239,12 +239,12 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 			<td></td>
 		  </tr>
 		  <tr>
-			<td rowspan=2 colspan="3" class="style01">CF DETECTOR</td>
-		    <td colspan=2 class="style01"><div style="display:none" id="detector_uv_div">UV</div></td>
-			<td colspan=2 class="style01"><div style="display:none" id="detector_mg_div">MG</div></td>
-			<td colspan=2 class="style01"><div style="display:none" id="detector_mra_div">MRA</div></td>
-			<td colspan=3 class="style01"><div style="display:none" id="detector_ir_div">IR</div></td>
-			<td colspan=2 class="style01"><div style="display:none" id="detector_tape_div">Tape Detector</div></td>
+			<td rowspan=2 colspan="3" class="style01">BRAND NAME</td>
+		    <td colspan=2 class="style01"><div style="display:none" id="detector_uv_div">HANKOOK</div></td>
+			<td colspan=2 class="style01"><div style="display:none" id="detector_mg_div">NEXEN</div></td>
+			<td colspan=2 class="style01"><div style="display:none" id="detector_mra_div">KUMHO</div></td>
+			<td colspan=3 class="style01"><div style="display:none" id="detector_ir_div">MICHELIN</div></td>
+			<td colspan=2 class="style01"><div style="display:none" id="detector_tape_div">GOODYEAR</div></td>
 			<td colspan=5 class="style01">기타</td>
 		  </tr> 
 		  <tr>
@@ -276,22 +276,22 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		    <td colspan=5></td>
 		  </tr>
 		  <tr>
-			<td rowspan=3 colspan="3" class="style01">Accessaries<br>(Bill Guide, Brush)</td>
-			<td colspan=4 class="style01">Serial Printer Cable</td>
+			<td rowspan=3 colspan="3" class="style01">QUALITY</td>
+			<td colspan=4 class="style01">A grade</td>
 			<td colspan=12 align=center>
 				<select id="srl_prn_cab_ox" name="srl_prn_cab_ox">
 				</select>
 			</td>
 		  </tr>
 		  <tr>
-			<td colspan=4 class="style01">Calibration Sheet</td>
+			<td colspan=4 class="style01">B grade</td>
 			<td colspan=12 align=center>
 				<select id="calibr_sheet_ox" name="calibr_sheet_ox">
 				</select>
 			</td>
 		  </tr>
 		  <tr>
-			<td colspan=4 class="style01">PC Cable</td>
+			<td colspan=4 class="style01">C grade</td>
 			<td colspan=12 align=center>
 				<select id="pc_cab_ox" name="pc_cab_ox">
 				</select>
@@ -323,7 +323,7 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 						</TR>
 						<!-- SB-9 -->
 						<TR id="snc_div" style="display:none">
-							<TD class="style01"><div>SNC</div></TD>
+							<TD class="style01"><div>Serial Number Copy</div></TD>
 							<TD align=center colspan=2 >
 							<select id="snc_ox" name="snc_ox" disabled>
 							<option value="">Select</option>
@@ -382,28 +382,24 @@ body { left-margin: 0.7in; right-margin: 0.7in; top-margin: 0.75in; bottom-margi
 		  </tr>
  -->		  
 		  <tr>
-			<td rowspan=8 colspan="3" class="style01">USER OPTION</td>
-		    <td colspan=5 class="style01">Language (LCD)</td>
+			<td rowspan=7 colspan="3" class="style01">USER OPTION</td>
+		    <td colspan=5 class="style01">Rim Diameter</td>
 			<td colspan=13 align=center><div id="txt_lcd_lang_atcd"></div></td>
 		  </tr>
 		  <tr>
-		    <td colspan=5 class="style01">LCD Color</td>
+		    <td colspan=5 class="style01">Section Width</td>
 			<td colspan=13 align=center><div id="txt_lcd_color_atcd"></div></td>
-		  </tr>
-		  <tr>
-		    <td colspan=5 class="style01">LCD Window</td>
-			<td colspan=13 align=center><div id="lcd_mdl_nm"></div></td>
 		  </tr>
 		  <tr>
 		    <td colspan=5 class="style01">Out Box</td>
 			<td colspan=13 align=center><div id="box_mdl_nm"></div></td>
 		  </tr>
 		  <tr>
-		    <td colspan=5 class="style01">Label</td>
+		    <td colspan=5 class="style01">Print</td>
 			<td colspan=13 align=center><div id="label_mdl_nm"></div></td>
 		  </tr>
 		  <tr>
-		    <td colspan=5 class="style01">PWR / Printer Power Cable</td>
+		    <td colspan=5 class="style01">Carcass</td>
 			<td colspan=13 style="text-align: center;vertical-align: middle;">
 			<div id="pwr_cab"></div>
 			</td>
@@ -688,7 +684,6 @@ function editForm(eqpOrdInfo, eqpOrdDtlList, prdReqInfo, prdReqDtlList) {
 	$("#buyer").html(eqpOrdInfo.txt_cntry_atcd + "-" + eqpOrdInfo.cmpy_nm);
 	$("#po_no").html(eqpOrdInfo.po_no);
 	$("#txt_mdl_nm").html(eqpOrdInfo.txt_mdl_nm);
-	$("#lcd_mdl_nm").html(eqpOrdInfo.mdl_nm);
 	$("#box_mdl_nm").html(eqpOrdInfo.mdl_nm);
 	$("#label_mdl_nm").html(eqpOrdInfo.mdl_nm);
 	$("#qty").html(eqpOrdInfo.qty);

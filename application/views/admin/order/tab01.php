@@ -147,12 +147,12 @@ require $_SERVER["DOCUMENT_ROOT"] . '/include/user/auth.php';
 			</td>
 		  </tr>
 		  <tr>
-			<td class="style01" colspan=2>LCD Color</td>
+			<td class="style01" colspan=2>Section Width</td>
 			<td colspan=3>
 				<select id="lcd_color_atcd" name="lcd_color_atcd">
 				</select>
 			</td>
-			<td class="style01">LCD Language</td>
+			<td class="style01">Rim Diameter</td>
 			<td>
 				<select id="lcd_lang_atcd" name="lcd_lang_atcd">
 				</select>
@@ -160,7 +160,7 @@ require $_SERVER["DOCUMENT_ROOT"] . '/include/user/auth.php';
 		   	<td colspan=4></td>
 		  </tr>
 		  <tr>
-			<td class="style01" colspan=2>Reject Pocket Type</td>
+			<td class="style01" colspan=2>Aspect Ratio</td>
 			<td colspan=3>
 				<select id="rjt_pkt_tp_atcd" name="rjt_pkt_tp_atcd">
 				</select>
@@ -170,7 +170,7 @@ require $_SERVER["DOCUMENT_ROOT"] . '/include/user/auth.php';
 			</td>
 		  </tr>
 		  <tr class="row18">
-			<td class="style01" colspan=2>Power Cable</td>
+			<td class="style01" colspan=2>Carcass</td>
 			<td colspan=3>
 			    <select style="width:200px" id="pwr_cab_atcd" name="pwr_cab_atcd">
 			    </select>
@@ -178,7 +178,7 @@ require $_SERVER["DOCUMENT_ROOT"] . '/include/user/auth.php';
 			<td class="style01">Other Options</td>
     		<td colspan=4>
 			    <div>
-			        LAN<input type=checkbox id="opt_hw_lan" name="opt_hw_lan">
+			        M+S<input type=checkbox id="opt_hw_lan" name="opt_hw_lan">
 			    </div>
 				<div class="form-group">
 			        <select id="opt_hw_atcd" name="opt_hw_atcd[]" multiple="multiple" class="form-control" style="width: 280px">
@@ -584,7 +584,7 @@ function initForm() {
 		getCodeCombo("00G0", f.payment_atcd);
 		getCodeCombo("00H0", f.incoterms_atcd);
 
-		getCodeImgCombo("00E0", f.pwr_cab_atcd, "00E00005");
+		getCodeImgCombo("00E0", f.pwr_cab_atcd, "00E00003");
 //		$("#pwr_cab_atcd").msDropdown({roundedBorder:false});
 
 		
@@ -659,7 +659,7 @@ function editForm(eqpOrdInfo, eqpOrdDtlList) {
 		getListMultiCombo(listSelSerialCurrency, $('#srl_fitness'), selSrlFitness);
 
 
-		if(!(eqpOrdInfo.mdl_cd=="2000" || eqpOrdInfo.mdl_cd=="3000" || eqpOrdInfo.mdl_cd=="5000")){
+		if(!(eqpOrdInfo.mdl_cd=="90")){
 			setMdlCtrl(eqpOrdInfo.mdl_cd);
 /**
 			$("#fitness").multipleSelect("uncheckAll");
@@ -669,6 +669,8 @@ function editForm(eqpOrdInfo, eqpOrdDtlList) {
 */			
 		}else{
 			$('#lcd_color_atcd').attr('disabled',true);
+			$('#lcd_lang_atcd').attr('disabled',true);
+			$('#rjt_pkt_tp_atcd').attr('disabled',true);
 		}
 		
     	var selOptHw =  [];
@@ -706,25 +708,33 @@ function editForm(eqpOrdInfo, eqpOrdDtlList) {
 
 function setMdlCtrl(value){
 	var f = document.addForm;
-	if(!(value == "2000" || value == "3000" || value == "5000")){
+	if(value == "1000" || value == "2000" || value == "3000"){
 	    $("#fitness").multipleSelect("uncheckAll");
 		$('#fitness').multipleSelect("disable");
 	    $("#srl_fitness").multipleSelect("uncheckAll");
 		$('#srl_fitness').multipleSelect("disable");
 		$('#lcd_color_atcd').attr('disabled',false);
+		$('#lcd_lang_atcd').attr('disabled',false);
+		$('#rjt_pkt_tp_atcd').attr('disabled',false);
 	}else{
 		$('#fitness').multipleSelect("enable");
 		$('#srl_fitness').multipleSelect("enable");
 		$('#lcd_color_atcd').attr('disabled',true);
+		if(value == "4000" || value == "5000"){
+			$('#rjt_pkt_tp_atcd').val("");
+			$('#rjt_pkt_tp_atcd').attr('disabled',true);
+//			$('#rjt_pkt_tp_atcd').val("00D00001");
+			$('#lcd_color_atcd').attr('disabled',false);
+		}else{
+			$('#lcd_color_atcd').val("");
+			$('#lcd_color_atcd').attr('disabled',true);
+			$('#lcd_lang_atcd').val("");
+			$('#lcd_lang_atcd').attr('disabled',true);
+			$('#rjt_pkt_tp_atcd').val("");
+			$('#rjt_pkt_tp_atcd').attr('disabled',true);
+		}
 	}
 	
-	if(value == "3000"){
-		$('#rjt_pkt_tp_atcd').val("00D00001");
-		$('#rjt_pkt_tp_atcd').attr('disabled',false);
-	}else{
-		$('#rjt_pkt_tp_atcd').val("");
-		$('#rjt_pkt_tp_atcd').attr('disabled',true);
-	}
 	if(value == "0007"){
 		$('#srl_atcd').val("");
 		setSerialCurrencyCombo("");

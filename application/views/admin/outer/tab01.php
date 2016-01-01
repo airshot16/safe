@@ -228,7 +228,7 @@ body { left-margin: 0.98425196850394in; right-margin: 0.98425196850394in; top-ma
 		  </tr>
 		  <tr class="row18">
 			<td class="column0 style25 null"></td>
-			<td class="column1 style26 s" colspan="3"><div id="eqpDiv" style="display:none;padding-left: 10px;">Currency Discrimination Counter</div></td>
+			<td class="column1 style26 s" colspan="3"><div id="eqpDiv" style="display:none;padding-left: 10px;"></div></td>
 			<td class="column4 style28 null"></td>
 			<td class="column5 style18 null"></td>
 			<td class="column6 style18 null"></td>
@@ -256,7 +256,7 @@ body { left-margin: 0.98425196850394in; right-margin: 0.98425196850394in; top-ma
 			<td class="column6 style19 f"><div id="amount" name="amount"></div></td>
 		  </tr>
 		  <tr class="row22" id="eqpHwOptDiv" style="display:none">
-			<td class="column0 style14 null">HW Option</td>
+			<td class="column0 style14 null">Options</td>
 			<td class="column1 style30 s" colspan=3><div id="txt_opt_hw_atcd" style="padding-left: 10px;line-height:50px;"></div></td>
 			<td class="column4 style33 null"><div id="opt_qty" style="line-height:50px;"></div></td>
 			<td class="column5 style19 null"><div id="opt_unit_prc" style="line-height:50px;"></div></td>
