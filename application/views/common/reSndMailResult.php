@@ -24,20 +24,20 @@ try {
 //    $mail->AddReplyTo('name@yourdomain.com', 'First Last');
 //    $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
     
-	if($atcd=="local"){
-		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
-		$mail->Username   = LOCAL_SMTP_USER; // 
-		$mail->Password   = LOCAL_SMTP_PASS; // 
-	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
-	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
-#		echo "atcd:" .$atcd;
-	}else{
+	if(SBM_DOMAIN=="http://www.trdoc.net"){
 		$mail->Host = SBM_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 #		$mail->SMTPSecure = "ssl"; // SSL을 사용함
 		$mail->Username   = SBM_SMTP_USER; 
 		$mail->Password   = SBM_SMTP_PASS; 
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
 	    $mail->Port = SBM_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+	}else{
+		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
+		$mail->Username   = LOCAL_SMTP_USER; // 
+		$mail->Password   = LOCAL_SMTP_PASS; // 
+	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
+	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+#		echo "atcd:" .$atcd;
 	}
 	
 	$sql3 = "SELECT a.pi_no, a.sndmail_seq, a.wrk_tp_atcd, a.sender_email, a.title, a.ctnt, email_from, email_to, snd_yn, b.snd_no, b.rcpnt_tp_atcd, b.rcpnt_team_atcd";
@@ -67,8 +67,8 @@ try {
 	    
 //	    $mail->SetFrom($row['email_from'], $row['sender_nm']);
 	    $mail->SetFrom(SBM_PUB_EMAIL, "TRDOC Corp.");
-		if($atcd=="local"){
-		    $mail->AddAddress(SBM_LOCAL_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+		if($atcd=="test"){
+		    $mail->AddAddress(LOCAL_TEST_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 #		    echo "mytest";
 	    }else{
 	    	if(SBM_DOMAIN=="http://www.trdoc.net"){
@@ -78,7 +78,7 @@ try {
 		    		$mail->AddAddress($row['email_to'], $row['rcpnt_nm']); 
 		    	}
 	    	}else if(SBM_DOMAIN=="http://localhost:9090"){
-	    		$mail->AddAddress(SBM_PUB_EMAIL);
+	    		$mail->AddAddress(LOCAL_PUB_EMAIL);
 	    	}
 	    }
 	    $mail->Subject = $row['title']; // 메일 제목

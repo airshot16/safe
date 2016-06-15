@@ -8,6 +8,9 @@ if(isset($_REQUEST["atcd"])){
 	$atcd = $_REQUEST["atcd"];
 }
 
+$pub_email = "";
+$sales_email = "";
+
 session_start();
 
 
@@ -24,20 +27,26 @@ try {
 //    $mail->AddReplyTo('name@yourdomain.com', 'First Last');
 //    $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
     
-	if($atcd=="local"){
-		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
-		$mail->Username   = LOCAL_SMTP_USER; // 
-		$mail->Password   = LOCAL_SMTP_PASS; // 
-	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
-	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
-#		echo "atcd:" .$atcd;
-	}else{
+	if(SBM_DOMAIN=="http://www.trdoc.net"){
 		$mail->Host = SBM_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 #		$mail->SMTPSecure = "ssl"; // SSL을 사용함
 		$mail->Username   = SBM_SMTP_USER; 
 		$mail->Password   = SBM_SMTP_PASS; 
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
 	    $mail->Port = SBM_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+
+	    $pub_email = SBM_PUB_EMAIL;
+	    $sales_email = SBM_SALES_EMAIL;
+	}else{
+		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
+		$mail->Username   = LOCAL_SMTP_USER; // 
+		$mail->Password   = LOCAL_SMTP_PASS; // 
+	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
+	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+	    
+	    $pub_email = LOCAL_PUB_EMAIL;
+	    $sales_email = LOCAL_SALES_EMAIL;
+#		echo "atcd:" .$atcd;
 	}
 	
 	$sql3 = "SELECT a.pi_no, a.sndmail_seq, a.wrk_tp_atcd, a.sender_email, a.title, a.ctnt, email_from, email_to, snd_yn, b.snd_no, b.rcpnt_tp_atcd, b.rcpnt_team_atcd";
@@ -67,7 +76,7 @@ try {
 		$qryResult['sndMail'][$i]['pi_no'] = $row['pi_no'];
 		$i++;
 	    
-	    $mail->SetFrom(SBM_PUB_EMAIL, "TRDOC Corp.");
+	    $mail->SetFrom($pub_email, "TRDOC Corp.");
 /*	    
  		if($row['rcpnt_tp_atcd']=="00100010"){  // if dealer
 			$mail->SetFrom($row['email_from'], $row['rcpnt_nm']); // test
@@ -79,13 +88,13 @@ try {
 	    	}
 	    }
  */	    
-	    if($atcd=="local"){
-		    $mail->AddAddress(SBM_LOCAL_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+	    if($atcd=="test"){
+		    $mail->AddAddress(LOCAL_TEST_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 	    }else{
 	    	if(SBM_DOMAIN=="http://www.trdoc.net"){
 		    	$mail->AddAddress($row['email_to'], $row['rcpnt_nm']); 
 	    	}else if(SBM_DOMAIN=="http://localhost:9090"){
-	    		$mail->AddAddress(SBM_LOCAL_EMAIL);
+	    		$mail->AddAddress(LOCAL_TEST_EMAIL);
 	    	}
 	    }
 	    $mail->Subject = $row['title']; // 메일 제목
@@ -93,7 +102,7 @@ try {
 	    
 		if($row['rcpnt_tp_atcd']=="00100010"){  // if dealer
 	    	if($row['wrk_tp_atcd']=="00700110" || $row['wrk_tp_atcd']=="00700410" || $row['wrk_tp_atcd']=="00700610"){  // if 주문서, CI, Packing
-	    		$mail->addBCC(SBM_SALES_EMAIL);
+	    		$mail->addBCC($sales_email);
 	    	}
 	    	if($row['wrk_tp_atcd']=="00700210"){  // if PI
 	    		$filename = "PI-" .$row['pi_no']. "-" .$row['sndmail_seq']. ".xls";

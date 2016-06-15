@@ -861,7 +861,7 @@
     		url: "/index.php/common/main/sndMailResult",
     		async: false,
     		dataType: "text",
-//    		data: {"sndmail_seq":sndmail_seq, "atcd":"local"}, // test
+//    		data: {"sndmail_seq":sndmail_seq, "atcd":"test"}, // test
     		data: {"sndmail_seq":sndmail_seq},
     		cache: false,
     		success: function(result, status, xhr){
@@ -882,7 +882,7 @@
     		url: "/index.php/common/main/reSndMailResult",
     		async: false,
     		dataType: "text",
-//    		data: {"sndmail_seq":sndmail_seq, "atcd":"local"}, // test
+//    		data: {"sndmail_seq":sndmail_seq, "atcd":"test"}, // test
     		data: {"sndmail_seq":sndmail_seq},
     		cache: false,
     		success: function(result, status, xhr){

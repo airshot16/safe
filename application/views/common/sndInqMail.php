@@ -79,15 +79,7 @@ try {
 //    $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
 
 
-    if(SBM_DOMAIN=="http://localhost:9090"){
-		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
-		$mail->Username   = "kpbaek"; // 
-		$mail->Password   = "1111"; // 
-	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
-	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
-	    $mail->SetFrom(SBM_LOCAL_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
-	    $mail->AddAddress(SBM_LOCAL_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
-    }else if(SBM_DOMAIN=="http://www.trdoc.net"){
+    if(SBM_DOMAIN=="http://www.trdoc.net"){
 		$mail->Host = SBM_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
 	    $mail->Port = SBM_SMTP_PORT; // email 보낼때 사용할 서버를 지정
@@ -96,7 +88,15 @@ try {
 		$mail->Password   = SBM_SMTP_PASS; 
 	    $mail->SetFrom(SBM_PUB_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 	    $mail->AddAddress(SBM_PUB2_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
-	}
+    }else{
+    	$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
+		$mail->Username   = "kpbaek"; // 
+		$mail->Password   = "1111"; // 
+	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
+	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+	    $mail->SetFrom(LOCAL_PUB_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+	    $mail->AddAddress(LOCAL_PUB2_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+    }
 #	echo $mail->Host . "<BR>";
     $mail->Subject = "Find a Dealer"; // 메일 제목
     $mail->MsgHTML($ctnt); // 메일 내용 (HTML 형식도 되고 그냥 일반 텍스트도 사용 가능함)
