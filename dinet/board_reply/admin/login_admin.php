@@ -1,6 +1,11 @@
 <?
 include("../inc/dbopen.php");
 include("../inc/stylesheet.php");
+
+$cmd = "";
+if(isset($_REQUEST["cmd"])){
+	$cmd = trim($_REQUEST["cmd"]);
+}
 ?>
 <html>
 
@@ -35,7 +40,6 @@ include("../inc/stylesheet.php");
 }
 ?>
 <input type=hidden name="cmd" value="<?echo $cmd?>">
-<input type=hidden name="num" value="<?echo $num?>">
 </FORM>
 
 </TABLE>

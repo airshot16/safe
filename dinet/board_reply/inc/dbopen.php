@@ -1,11 +1,11 @@
 <?
 /*	DB Open	*/
-//safeleader.esy.es
-//$conn=mysql_connect('mysql.hostinger.kr','u503855302_sldba','airshot16!');
-//mysql_select_db("u503855302_safe",$conn);
+//localhost
+$conn=mysqli_connect('localhost','sbmkorea','sbmkoreacom123');
+mysqli_select_db($conn, "test");
 
-$conn=mysqli_connect('mysql.hostinger.kr','u174149214_trdoc','airshot');
-mysqli_select_db($conn, "u174149214_trdoc");
+// $conn=mysqli_connect('mysql.hostinger.kr','u174149214_trdoc','airshot');
+// mysqli_select_db($conn, "u174149214_trdoc");
 
 if (!$conn) 
 { 
