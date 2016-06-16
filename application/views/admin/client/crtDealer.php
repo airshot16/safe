@@ -136,7 +136,7 @@ if(isSet($_POST['usr_email'])){
 		$sql_user = "INSERT INTO om_user";
 		$sql_user = $sql_user . "(uid, pswd, auth_grp_cd, usr_nm, usr_email, gender_atcd, nation_atcd, join_dt, active_yn, crt_dt, crt_uid)";
 		$pswd = "'dealer123'";
-		if(SBM_DOMAIN=="http://www.trdoc.net"){
+		if(TRD_DOMAIN=="http://www.trdoc.net"){
 			$pswd = "concat(substring(MD5(RAND()), -6),'d1')";
 		}
 		$sql_user = $sql_user . "VALUES ('" .$usr_email. "', " .$pswd. ", 'UD', '" .$dealer_nm. "', '" .$usr_email. "', '" .$gender_atcd. "', '" .$nation_atcd. "', now(), 'Y', now(), '" .$usr_email. "')";

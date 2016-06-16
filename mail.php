@@ -20,13 +20,13 @@ $mail->SetFrom ( 'kpbaek@localhost' );
 $mail->AddAddress ( "tester1@localhost", "SBM" );
 */
 
-$mail->Host = SBM_SMTP_HOST; 
-$mail->Port = SBM_SMTP_PORT; 
-$mail->Username = SBM_SMTP_USER;
-$mail->Password = SBM_SMTP_PASS;
-$mail->SetFrom ( SBM_PUB_EMAIL ); 
+$mail->Host = TRD_SMTP_HOST; 
+$mail->Port = TRD_SMTP_PORT; 
+$mail->Username = TRD_SMTP_USER;
+$mail->Password = TRD_SMTP_PASS;
+$mail->SetFrom ( TRD_PUB_EMAIL ); 
 $mail->Priority = 1;
-$mail->AddAddress ( SBM_PUB_EMAIL, "SBM" );
+$mail->AddAddress ( TRD_PUB_EMAIL, "SBM" );
 
 
 $mail->Subject = "Message from  Contact form";

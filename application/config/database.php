@@ -48,10 +48,10 @@
 $active_group = 'default';
 $active_record = TRUE;
 
-$db['default']['hostname'] = SBMBIZ_DBHOST;
-$db['default']['username'] = SBMBIZ_DBUSER;
-$db['default']['password'] = SBMBIZ_DBPASS;
-$db['default']['database'] = SBMBIZ_DBNAME;
+$db['default']['hostname'] = TRD_DBHOST;
+$db['default']['username'] = TRD_DBUSER;
+$db['default']['password'] = TRD_DBPASS;
+$db['default']['database'] = TRD_DBNAME;
 $db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;

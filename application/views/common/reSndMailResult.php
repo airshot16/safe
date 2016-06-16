@@ -24,13 +24,13 @@ try {
 //    $mail->AddReplyTo('name@yourdomain.com', 'First Last');
 //    $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
     
-	if(SBM_DOMAIN=="http://www.trdoc.net"){
-		$mail->Host = SBM_SMTP_HOST; // email 보낼때 사용할 서버를 지정
+	if(TRD_DOMAIN=="http://www.trdoc.net"){
+		$mail->Host = TRD_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 #		$mail->SMTPSecure = "ssl"; // SSL을 사용함
-		$mail->Username   = SBM_SMTP_USER; 
-		$mail->Password   = SBM_SMTP_PASS; 
+		$mail->Username   = TRD_SMTP_USER; 
+		$mail->Password   = TRD_SMTP_PASS; 
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
-	    $mail->Port = SBM_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+	    $mail->Port = TRD_SMTP_PORT; // email 보낼때 사용할 서버를 지정
 	}else{
 		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 		$mail->Username   = LOCAL_SMTP_USER; // 
@@ -66,18 +66,18 @@ try {
 		$i++;
 	    
 //	    $mail->SetFrom($row['email_from'], $row['sender_nm']);
-	    $mail->SetFrom(SBM_PUB_EMAIL, "TRDOC Corp.");
+	    $mail->SetFrom(TRD_PUB_EMAIL, "TRDOC Corp.");
 		if($atcd=="test"){
 		    $mail->AddAddress(LOCAL_TEST_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 #		    echo "mytest";
 	    }else{
-	    	if(SBM_DOMAIN=="http://www.trdoc.net"){
+	    	if(TRD_DOMAIN=="http://www.trdoc.net"){
 		    	if($row['rcpnt_tp_atcd']=="00100010"){  // if the target is dealer -> do not send yet.
-		    		$mail->AddAddress(SBM_PUB_EMAIL);
+		    		$mail->AddAddress(TRD_PUB_EMAIL);
 		    	}else{
 		    		$mail->AddAddress($row['email_to'], $row['rcpnt_nm']); 
 		    	}
-	    	}else if(SBM_DOMAIN=="http://localhost:9090"){
+	    	}else if(TRD_DOMAIN=="http://localhost:9090"){
 	    		$mail->AddAddress(LOCAL_PUB_EMAIL);
 	    	}
 	    }
@@ -86,7 +86,7 @@ try {
 	    
 		if($row['rcpnt_tp_atcd']=="00100010"){  // if dealer
 	    	if($row['wrk_tp_atcd']=="00700110" || $row['wrk_tp_atcd']=="00700410" || $row['wrk_tp_atcd']=="00700610"){  // if 주문서, CI, Packing
-//	    		$mail->AddAddress(SBM_SALES_EMAIL);
+//	    		$mail->AddAddress(TRD_SALES_EMAIL);
 	    	}
 	    	if($row['wrk_tp_atcd']=="00700210"){  // if PI
 	    		$filename = "PI-" .$row['pi_no']. "-" .$row['sndmail_seq']. ".xls";

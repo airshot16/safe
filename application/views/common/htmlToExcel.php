@@ -103,7 +103,7 @@ if ($sndmail_atcd == "00700211" or $sndmail_atcd == "00700411") { // PI, CI
 	$packingClass=new PackingClass();
 	$ctnt = $packingClass->getPackingMailCtnt($ctnt, $invoice);
 }
-$ctnt = str_replace ( "@base_url", SBM_DOMAIN, $ctnt );
+$ctnt = str_replace ( "@base_url", TRD_DOMAIN, $ctnt );
 
 $filename = $sndmail_atcd_nm. "(PI-" .$pi_no. ").xls";  //파일명
 

@@ -27,16 +27,16 @@ try {
 //    $mail->AddReplyTo('name@yourdomain.com', 'First Last');
 //    $mail->AltBody = 'To view the message, please use an HTML compatible email viewer!'; // optional - MsgHTML will create an alternate automatically
     
-	if(SBM_DOMAIN=="http://www.trdoc.net"){
-		$mail->Host = SBM_SMTP_HOST; // email 보낼때 사용할 서버를 지정
+	if(TRD_DOMAIN=="http://www.trdoc.net"){
+		$mail->Host = TRD_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 #		$mail->SMTPSecure = "ssl"; // SSL을 사용함
-		$mail->Username   = SBM_SMTP_USER; 
-		$mail->Password   = SBM_SMTP_PASS; 
+		$mail->Username   = TRD_SMTP_USER; 
+		$mail->Password   = TRD_SMTP_PASS; 
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
-	    $mail->Port = SBM_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+	    $mail->Port = TRD_SMTP_PORT; // email 보낼때 사용할 서버를 지정
 
-	    $pub_email = SBM_PUB_EMAIL;
-	    $sales_email = SBM_SALES_EMAIL;
+	    $pub_email = TRD_PUB_EMAIL;
+	    $sales_email = TRD_SALES_EMAIL;
 	}else{
 		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 		$mail->Username   = LOCAL_SMTP_USER; // 
@@ -91,9 +91,9 @@ try {
 	    if($atcd=="test"){
 		    $mail->AddAddress(LOCAL_TEST_EMAIL, $row['rcpnt_nm']); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 	    }else{
-	    	if(SBM_DOMAIN=="http://www.trdoc.net"){
+	    	if(TRD_DOMAIN=="http://www.trdoc.net"){
 		    	$mail->AddAddress($row['email_to'], $row['rcpnt_nm']); 
-	    	}else if(SBM_DOMAIN=="http://localhost:9090"){
+	    	}else if(TRD_DOMAIN=="http://localhost:9090"){
 	    		$mail->AddAddress(LOCAL_TEST_EMAIL);
 	    	}
 	    }

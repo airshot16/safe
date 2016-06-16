@@ -28,23 +28,23 @@ try {
 //    $mail->AddAttachment('images/phpmailer_mini.gif'); // attachment
 
 
-    if(SBM_DOMAIN=="http://localhost:9090"){
+    if(TRD_DOMAIN=="http://localhost:9090"){
 		$mail->Host = LOCAL_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 		$mail->Username   = "kpbaek"; // 
 		$mail->Password   = "1111"; // 
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
 	    $mail->Port = LOCAL_SMTP_PORT; // email 보낼때 사용할 서버를 지정
-	    $mail->SetFrom(SBM_LOCAL_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
-	    $mail->AddAddress(SBM_LOCAL_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
-    }else if(SBM_DOMAIN=="http://www.trdoc.net"){
-		$mail->Host = SBM_SMTP_HOST; // email 보낼때 사용할 서버를 지정
+	    $mail->SetFrom(LOCAL_TEST_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+	    $mail->AddAddress(LOCAL_TEST_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+    }else if(TRD_DOMAIN=="http://www.trdoc.net"){
+		$mail->Host = TRD_SMTP_HOST; // email 보낼때 사용할 서버를 지정
 	    $mail->SMTPAuth = true; // SMTP 인증을 사용함
-	    $mail->Port = SBM_SMTP_PORT; // email 보낼때 사용할 서버를 지정
+	    $mail->Port = TRD_SMTP_PORT; // email 보낼때 사용할 서버를 지정
 //		$mail->SMTPSecure = "ssl"; // SSL을 사용함
-		$mail->Username   = SBM_SMTP_USER; 
-		$mail->Password   = SBM_SMTP_PASS; 
-	    $mail->SetFrom(SBM_PUB_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
-	    $mail->AddAddress(SBM_PUB_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+		$mail->Username   = TRD_SMTP_USER; 
+		$mail->Password   = TRD_SMTP_PASS; 
+	    $mail->SetFrom(TRD_PUB_EMAIL); // 보내는 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
+	    $mail->AddAddress(TRD_PUB_EMAIL); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
 	}
 	echo $mail->Host . "<BR>";
 #    $mail->AddAddress('kpbaek@localhost', '백경파'); // 받을 사람 email 주소와 표시될 이름 (표시될 이름은 생략가능)
