@@ -1,10 +1,10 @@
 <?php
-// Local database connection settings
-define("SBMBIZ_DBTYPE","mysql"); // or mysqli
-define("SBMBIZ_DBHOST","localhost");
-define("SBMBIZ_DBUSER","sbmkorea");
-define("SBMBIZ_DBPASS","sbmkoreacom123");
-define("SBMBIZ_DBNAME","test");
+// safe database connection settings
+define("TRD_DBTYPE","mysql"); // or mysqli
+define("TRD_DBHOST","localhost");
+define("TRD_DBUSER","sbmkorea");
+define("TRD_DBPASS","sbmkoreacom123");
+define("TRD_DBNAME","test");
 
 define('LOCAL_SMTP_HOST', 'localhost');
 define('LOCAL_SMTP_USER', 'kpbaek');
@@ -17,16 +17,15 @@ define('LOCAL_SALES_EMAIL', 'test@localhost');
 define('LOCAL_DOMAIN', 'http://localhost:9090');
 
 define('LOCAL_TEST_EMAIL', 'test@localhost');
-define('SBM_LOCAL_EMAIL', 'test@localhost');
 
-define('SBM_SMTP_HOST', 'mx1.hostinger.kr');
-define('SBM_SMTP_USER', 'trdoc@trdoc.net');
-define('SBM_SMTP_PASS', 'trdoc.net');
-define('SBM_SMTP_PORT', '2525');
+define('TRD_SMTP_HOST', 'mx1.hostinger.kr');
+define('TRD_SMTP_USER', 'trdoc@trdoc.net');
+define('TRD_SMTP_PASS', 'trdoc.net');
+define('TRD_SMTP_PORT', '2525');
 
-define('SBM_PUB_EMAIL', 'trdoc@trdoc.net');
-define('SBM_PUB2_EMAIL', 'help@trdoc.net');
-define('SBM_SALES_EMAIL', 'order@trdoc.net');
-define('SBM_DOMAIN', 'http://www.trdoc.net');
-#define('SBM_DOMAIN', 'http://localhost:9090');
+define('TRD_PUB_EMAIL', 'trdoc@trdoc.net');
+define('TRD_PUB2_EMAIL', 'help@trdoc.net');
+define('TRD_SALES_EMAIL', 'order@trdoc.net');
+define('TRD_DOMAIN', 'http://www.trdoc.net');
+#define('TRD_DOMAIN', 'http://localhost:9090');
 
