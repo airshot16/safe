@@ -11,7 +11,7 @@ define('LOCAL_SMTP_HOST', 'localhost');
 define('LOCAL_SMTP_USER', 'kpbaek');
 define('LOCAL_SMTP_PASS', '1111');
 define('LOCAL_SMTP_PORT', '25');
-define('SBM_LOCAL_EMAIL', 'kpbaek@localhost');
+define('LOCAL_TEST_EMAIL', 'kpbaek@localhost');
 
 
 define('SBM_SMTP_HOST', 'mail.sbmkorea.biz');
