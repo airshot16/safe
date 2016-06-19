@@ -1,2 +1,0 @@
-create table IP_BOARD_REPLY( b_idx integer NOT NULL, num integer NOT NULL, name varchar(20), pwd varchar(10), title varchar(100), content text, writeday date, readnum integer NOT NULL, ref integer NOT NULL default 0, ref_level integer default 0, ref_step integer default 0, filename1 varchar(50) );
-create table IP_BOARD_ADMIN( admin_idx integer NOT NULL, admin_id varchar(15), admin_pw varchar(15), admin_name varchar(15) );
